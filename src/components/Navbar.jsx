@@ -49,21 +49,7 @@ const Navbar = () => {
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.95 }}
                 >
-                    <a>About</a>
-                </motion.li>
-                <motion.li
-                    variants={fadeInUp}
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.95 }}
-                >
                     <a>Projects</a>
-                </motion.li>
-                <motion.li
-                    variants={fadeInUp}
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.95 }}
-                >
-                    <a>Home</a>
                 </motion.li>
 
                 <motion.li
