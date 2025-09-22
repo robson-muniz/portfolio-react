@@ -48,7 +48,23 @@ const Hero = () => {
                         className='cta-secondary'
                         whileHover={{scale: 1.05}}
                         whileTap={{scale: 0.95}}
-                    >Contact Me</motion.a>
+                    >Contact Me
+                    </motion.a>
+                </motion.div>
+
+                <motion.div
+                    className='social-links'
+                    variants={staggerContainer}
+                >
+                    <motion.a href='https://github.com/robson-muniz' target="_blank">
+                        <i className="fab fa-github"></i>
+                    </motion.a>
+                    <motion.a href='https://www.linkedin.com/in/robsonmuniz/' target="_blank">
+                        <i className="fab fa-linkedin"></i>
+                    </motion.a>
+                    <motion.a href='https://x.com/WebDevMadeEasy' target="_blank">
+                        <i className="fab fa-twitter"></i>
+                    </motion.a>
                 </motion.div>
 
             </motion.div>
