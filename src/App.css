@@ -1,0 +1,35 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #7c3aed;
+    --primary-dark: #5b21b6;
+    --secondary-color: #db2777;
+    --accent-color: #f472b6;
+    --text-color: #e2e8f0;
+    --light-text: #94a3b8;
+    --background: #0f172a;
+    --section-bg: #1e293b;
+    --card-bg: #1e293b;
+    --gradient-start: #7c3aed;
+    --gradient-end: #db2777;
+    --nav-bg: rgba(15, 23, 42, 0.8);
+    --card-border: rgba(148, 163, 184, 0.1);
+}
+
+body {
+    line-height: 1.6;
+    color: var(--text-color);
+    background: var(--background);
+}
+
+.App{
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity .6s ease-out, transform .6s ease-out;
+    width: 100%;
+    min-height: 100vh;
+}
