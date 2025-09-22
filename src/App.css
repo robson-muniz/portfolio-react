@@ -136,3 +136,12 @@ body {
     backdrop-filter: blur(5px);
     border: 1px solid rgba(255,255,255,0.2);
 }
+
+.glitch {
+    font-size: 4.5rem;
+    font-weight: 800;
+    text-shadow: 0 0 10px rgba(255,255,255,0.5);
+    position: relative;
+    margin-bottom: 1rem;
+    line-height: 1.1;
+}
