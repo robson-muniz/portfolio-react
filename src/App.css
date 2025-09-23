@@ -239,5 +239,21 @@ body {
 @media (max-width: 1024px){
     .hero-container{
         flex-direction: column;
+        text-align: center;
+        gap: 3rem;
+        padding-top: 120px;
+    }
+    .hero-content {
+        text-align: center;
+        max-width: 100%;
+
+    }
+
+    .cta-buttons{
+        justify-content: center;
+    }
+
+    .social-links{
+        justify-content: center;
     }
 }
