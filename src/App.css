@@ -215,3 +215,29 @@ body {
     background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
     transition: 0.5s;
 }
+
+.cta-secondary:hover::before {
+    left: 100%;
+}
+
+.social-links{
+    display: flex;
+    gap: 1.5rem;
+}
+
+.social-links a{
+    color: white;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover{
+    color: var(--accent-color);
+}
+
+/*Hero Media Queries*/
+@media (max-width: 1024px){
+    .hero-container{
+        flex-direction: column;
+    }
+}
