@@ -68,6 +68,17 @@ const Hero = () => {
                 </motion.div>
 
             </motion.div>
+            <motion.div
+                className='hero-image-container'
+                initial={{opacity: 0, x:50}}
+                animate={{opacity: 1, x:0}}
+                transition={{duration: 0.8, delay: 0.4}}
+            >
+                <div className="code-display">
+
+                </div>
+
+            </motion.div>
         </div>
     </motion.section>
 
