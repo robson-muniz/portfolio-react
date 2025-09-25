@@ -25,7 +25,7 @@ const Hero = () => {
                            transition={{duration: 0.8, delay: 0.2}}
     >
         <div className="hero-container">
-            <motion.div className="hero-content" variants={staggerContainer} inicial='initial' animate='animate'>
+            <motion.div className="hero-content" variants={staggerContainer} initial='initial' animate='animate'>
                 <motion.div className="hero-badge">
                     <span>👋 Hello, I'm </span>
                 </motion.div>
@@ -99,8 +99,17 @@ const Hero = () => {
 console.log("Welcome to my digital world! 🚀");
                         `}
                     </SyntaxHighlighter>
-
                 </div>
+                <motion.div
+                    className='floating-card'
+                    animate={{y:[0, -10, 0], rotate:[0,2,0]}}
+                    transition={{duration: 4, repeat: Infinity, ease: "easeInOut"}}
+                >
+                    <div className='card-content'>
+                        <span className='card-icon'>💻</span>
+                        <span className='card-text'>Currently working on something awesome!</span>
+                    </div>
+                </motion.div>
 
             </motion.div>
         </div>

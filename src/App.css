@@ -235,6 +235,47 @@ body {
     color: var(--accent-color);
 }
 
+.floating-card{
+    position: absolute;
+    bottom: 2rem;
+    right: -2rem;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 1rem 1.5rem;
+    border-radius: 15px;
+    border: 1px solid rgba(255,255,255,0.2);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.card-content{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.card-text{
+    color: white;
+    font-size: 0.9rem;
+    font-weight: 500;
+
+}
+
+.card-icon{
+    font-size: 1.5rem;
+}
+
+.hero-image-container{
+    flex: 1;
+    position: relative;
+    max-width: 600px;
+
+}
+
+.code-display{
+    width: 100%;
+    h500px
+}
+
 /*Hero Media Queries*/
 @media (max-width: 1024px){
     .hero-container{
@@ -257,3 +298,12 @@ body {
         justify-content: center;
     }
 }
+
+@media (max-width: 768px){
+    .hero-image-container{
+        display: none;
+    }
+}
+
+
+
