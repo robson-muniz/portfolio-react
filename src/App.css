@@ -272,8 +272,8 @@ body {
 }
 
 .code-display{
-    width: 100%;
-    h500px
+   width: 100%;
+    height: 500px;
 }
 
 /*Hero Media Queries*/

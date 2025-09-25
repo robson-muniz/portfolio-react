@@ -81,8 +81,16 @@ const Hero = () => {
                     <SyntaxHighlighter
                         language="javascript"
                         style={vscDarkPlus}
-                        customStyle={{ margin: 0, padding: '2rem', height: '100%', borderRadius: '20px',
-                            background: 'rgba(30,41,59,0.8)', backdropFilter: 'blur(10px)', marginBottom: 50}}
+                        customStyle={{
+                            margin: 0,
+                            padding: '2rem',
+                            height: '100%',
+                            borderRadius: '20px',
+                            background: 'rgba(30,41,59,0.8)',
+                            backdropFilter: 'blur(10px)',
+                            marginBottom: 50,
+                            overflowX: 'hidden' // hides horizontal overflow
+                        }}
 
                     >
                         {`
