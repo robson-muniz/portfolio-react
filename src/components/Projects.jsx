@@ -7,9 +7,7 @@ const fadeInUp = {
 };
 
 const staggerContainer = {
-    animate: {
-        transition: { staggerChildren: 0.1 },
-    },
+    animate: { transition: { staggerChildren: 0.1 } },
 };
 
 const Projects = () => {
@@ -22,7 +20,7 @@ const Projects = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
         >
-            {/* Heading is separate from grid */}
+            {/* Heading */}
             <motion.h2
                 variants={fadeInUp}
                 initial="initial"
@@ -32,7 +30,7 @@ const Projects = () => {
                 My Projects
             </motion.h2>
 
-            {/* Grid container outside the heading */}
+            {/* Grid container */}
             <motion.div
                 className="project-grid"
                 variants={staggerContainer}
@@ -46,25 +44,21 @@ const Projects = () => {
                     variants={fadeInUp}
                     whileHover={{ y: -10, transition: { duration: 0.2 } }}
                 >
-                    <motion.div className="project-card" variants={fadeInUp} whileHover={{ y: -10 }}>
-                        <motion.div
-                            className="project-image"
-                            style={{ backgroundImage: "url('/projects/ai-saas.png')" }}
-                            whileHover={{ scale: 1.05 }}
-                            transition={{ duration: 0.2 }}
-                        />
-                        <h3>AI SaaS Platform</h3>
-                        <p>
-                            A modern SaaS platform built with Next.js and OpenAI integration,
-                            featuring real-time AI-powered content generation and analytics.
-                        </p>
-                        <div className="project-tech">
-                            <span>Next.js</span>
-                            <span>OpenAI</span>
-                            <span>TailwindCSS</span>
-                        </div>
-                    </motion.div>
-
+                    <motion.div
+                        className="project-image"
+                        style={{ backgroundImage: "url('/projects/ai-saas.png')" }}
+                        whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
+                    />
+                    <h3>AI SaaS Platform</h3>
+                    <p>
+                        A modern SaaS platform built with Next.js and OpenAI integration,
+                        featuring real-time AI-powered content generation and analytics.
+                    </p>
+                    <div className="project-tech">
+                        <span>Next.js</span>
+                        <span>OpenAI</span>
+                        <span>TailwindCSS</span>
+                    </div>
                 </motion.div>
 
                 {/* Project 2 */}
@@ -76,8 +70,7 @@ const Projects = () => {
                     <motion.div
                         className="project-image"
                         style={{ backgroundImage: "url('/projects/social-media.png')" }}
-                        whileHover={{ scale: 1.05 }}
-                        transition={{ duration: 0.2 }}
+                        whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
                     />
                     <h3>Social Media Dashboard</h3>
                     <p>
@@ -100,8 +93,7 @@ const Projects = () => {
                     <motion.div
                         className="project-image"
                         style={{ backgroundImage: "url('/projects/stopwatch.png')" }}
-                        whileHover={{ scale: 1.05 }}
-                        transition={{ duration: 0.2 }}
+                        whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
                     />
                     <h3>Productivity Timer</h3>
                     <p>
