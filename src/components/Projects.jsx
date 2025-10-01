@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
 import {useEffect, useState} from "react";
+import FadeInSection from "./FadeInSection";
+
 
 const Projects = () => {
     const [hoveredProject, setHoveredProject] = useState(null);
@@ -56,12 +58,13 @@ const Projects = () => {
                             💼 Portfolio
                         </span>
                     </motion.div>
-
+                    <FadeInSection>
                     <h2 className="text-4xl lg:text-5xl font-bold mb-4">
                         <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
                             Featured Projects
                         </span>
                     </h2>
+                    </FadeInSection>
 
                     <p className="text-slate-400 text-lg max-w-2xl mx-auto">
                         A collection of my recent work, showcasing innovative solutions and creative implementations.

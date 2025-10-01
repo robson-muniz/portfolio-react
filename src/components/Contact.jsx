@@ -120,7 +120,7 @@ const Contact = () => {
         {
             icon: "📧",
             title: "Email",
-            content: "robson@example.com",
+            content: "robsonmuniz.tech@gmail.com",
             gradient: "from-purple-500 to-pink-500",
             borderColor: "purple"
         },
