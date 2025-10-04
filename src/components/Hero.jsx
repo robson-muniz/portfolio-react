@@ -2,7 +2,6 @@ import {motion} from 'framer-motion'
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 
-// Enhanced Hero Component
 const Hero = () => {
     const codeSnippet = `const robsonMuniz = {
   name: "Robson Muniz",
@@ -21,14 +20,14 @@ const Hero = () => {
     ];
 
     return (
-        <section id="home" className="min-h-screen flex items-center justify-center px-6 py-20 bg-gradient-to-br from-slate-900 via-purple-900/20 to-slate-900">
-            <div className="max-w-7xl w-full grid lg:grid-cols-2 gap-12 items-center">
+        <section id="home" className="min-h-screen flex items-center justify-center px-4 sm:px-6 py-20 bg-gradient-to-br from-slate-900 via-purple-900/20 to-slate-900">
+            <div className="max-w-7xl w-full grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
                 {/* Left Content */}
                 <motion.div
                     initial={{ opacity: 0, x: -50 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.8 }}
-                    className="space-y-6"
+                    className="space-y-4 sm:space-y-6 text-center lg:text-left order-2 lg:order-1"
                 >
                     <motion.div
                         initial={{ opacity: 0, scale: 0.9 }}
@@ -44,7 +43,7 @@ const Hero = () => {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.3 }}
-                        className="text-5xl lg:text-7xl font-bold"
+                        className="text-4xl sm:text-5xl lg:text-7xl font-bold"
                     >
                         <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
                             Robson Muniz
@@ -55,7 +54,7 @@ const Hero = () => {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.4 }}
-                        className="text-2xl lg:text-3xl text-slate-300 font-light"
+                        className="text-xl sm:text-2xl lg:text-3xl text-slate-300 font-light"
                     >
                         Creative Developer & Designer
                     </motion.h2>
@@ -64,7 +63,7 @@ const Hero = () => {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.5 }}
-                        className="text-slate-400 text-lg leading-relaxed max-w-xl"
+                        className="text-slate-400 text-base sm:text-lg leading-relaxed max-w-xl mx-auto lg:mx-0"
                     >
                         Transforming ideas into exceptional digital experiences. I build intuitive,
                         engaging web applications that merge beautiful design with powerful functionality.
@@ -74,21 +73,21 @@ const Hero = () => {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.6 }}
-                        className="flex flex-wrap gap-4 pt-4"
+                        className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-4 justify-center lg:justify-start"
                     >
                         <motion.a
                             href="#projects"
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
-                            className="px-8 py-3 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg text-white font-medium shadow-lg shadow-purple-500/50 hover:shadow-purple-500/70 transition-all"
+                            className="px-6 sm:px-8 py-3 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg text-white font-medium shadow-lg shadow-purple-500/50 hover:shadow-purple-500/70 transition-all text-center"
                         >
                             View My Work
                         </motion.a>
                         <motion.a
-                            href="#contacts"
+                            href="#contact"
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
-                            className="px-8 py-3 border-2 border-purple-500/50 rounded-lg text-purple-300 font-medium hover:bg-purple-500/10 transition-all"
+                            className="px-6 sm:px-8 py-3 border-2 border-purple-500/50 rounded-lg text-purple-300 font-medium hover:bg-purple-500/10 transition-all text-center"
                         >
                             Get In Touch
                         </motion.a>
@@ -98,7 +97,7 @@ const Hero = () => {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ delay: 0.7 }}
-                        className="flex gap-4 pt-4"
+                        className="flex gap-4 pt-4 justify-center lg:justify-start"
                     >
                         {socialLinks.map((social, index) => (
                             <motion.a
@@ -108,7 +107,7 @@ const Hero = () => {
                                 rel="noopener noreferrer"
                                 whileHover={{ scale: 1.2, y: -2 }}
                                 whileTap={{ scale: 0.9 }}
-                                className="w-12 h-12 flex items-center justify-center bg-slate-800/50 border border-slate-700 rounded-full text-slate-300 hover:text-white hover:border-purple-500/50 hover:bg-purple-500/10 transition-all"
+                                className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center bg-slate-800/50 border border-slate-700 rounded-full text-slate-300 hover:text-white hover:border-purple-500/50 hover:bg-purple-500/10 transition-all"
                                 aria-label={social.label}
                             >
                                 {social.icon}
@@ -122,10 +121,10 @@ const Hero = () => {
                     initial={{ opacity: 0, x: 50 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.8, delay: 0.4 }}
-                    className="relative"
+                    className="relative order-1 lg:order-2 mb-8 lg:mb-0"
                 >
                     <motion.div
-                        className="relative bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 rounded-2xl overflow-hidden shadow-2xl"
+                        className="relative bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 rounded-xl sm:rounded-2xl overflow-hidden shadow-2xl"
                         animate={{
                             boxShadow: [
                                 '0 0 20px rgba(139, 92, 246, 0.3)',
@@ -136,17 +135,17 @@ const Hero = () => {
                         transition={{ duration: 3, repeat: Infinity }}
                     >
                         {/* Window Controls */}
-                        <div className="flex items-center gap-2 px-4 py-3 bg-slate-900/80 border-b border-slate-700/50">
-                            <div className="flex gap-2">
-                                <div className="w-3 h-3 rounded-full bg-red-500"></div>
-                                <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-                                <div className="w-3 h-3 rounded-full bg-green-500"></div>
+                        <div className="flex items-center gap-2 px-3 sm:px-4 py-2 sm:py-3 bg-slate-900/80 border-b border-slate-700/50">
+                            <div className="flex gap-1 sm:gap-2">
+                                <div className="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-red-500"></div>
+                                <div className="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-yellow-500"></div>
+                                <div className="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-green-500"></div>
                             </div>
-                            <span className="ml-4 text-xs text-slate-400">robson-muniz.js</span>
+                            <span className="ml-2 sm:ml-4 text-xs text-slate-400">robson-muniz.js</span>
                         </div>
 
                         {/* Code Content */}
-                        <pre className="p-6 overflow-x-auto text-sm">
+                        <pre className="p-4 sm:p-6 overflow-x-auto text-xs sm:text-sm">
                             <code className="text-slate-300 font-mono">
                                 {codeSnippet}
                             </code>
@@ -156,16 +155,16 @@ const Hero = () => {
                     {/* Floating Card */}
                     <motion.div
                         animate={{
-                            y: [0, -10, 0],
+                            y: [0, -8, 0],
                             rotate: [0, 2, 0]
                         }}
                         transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                        className="absolute -bottom-6 -right-6 bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl p-4 shadow-xl"
+                        className="absolute -bottom-4 -right-4 sm:-bottom-6 sm:-right-6 bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl sm:rounded-2xl p-3 sm:p-4 shadow-xl"
                     >
-                        <div className="flex items-center gap-3">
-                            <span className="text-3xl">💻</span>
+                        <div className="flex items-center gap-2 sm:gap-3">
+                            <span className="text-xl sm:text-3xl">💻</span>
                             <div className="text-white">
-                                <p className="text-sm font-medium">Currently Building</p>
+                                <p className="text-xs sm:text-sm font-medium">Currently Building</p>
                                 <p className="text-xs opacity-90">Something Awesome!</p>
                             </div>
                         </div>

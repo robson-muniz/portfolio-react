@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 const Navbar = () => {
     const [scrolled, setScrolled] = useState(false);
     const [hoveredItem, setHoveredItem] = useState(null);
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -13,11 +14,24 @@ const Navbar = () => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
+    // Close mobile menu when clicking on a link
+    useEffect(() => {
+        if (isMobileMenuOpen) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'unset';
+        }
+    }, [isMobileMenuOpen]);
+
     const navItems = [
         { name: 'Home', href: '#home', icon: '🏠' },
         { name: 'Projects', href: '#projects', icon: '💼' },
-        { name: 'Contact', href: '#contact', icon: '📧' }, // ✅ fixed to match your section
+        { name: 'Contact', href: '#contact', icon: '📧' },
     ];
+
+    const handleNavClick = () => {
+        setIsMobileMenuOpen(false);
+    };
 
     return (
         <motion.nav
@@ -30,7 +44,7 @@ const Navbar = () => {
             animate={{ y: 0 }}
             transition={{ duration: 0.6, ease: 'easeOut' }}
         >
-            <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between">
                 {/* Logo */}
                 <motion.div
                     className="relative text-2xl font-bold cursor-pointer overflow-hidden group"
@@ -48,8 +62,8 @@ const Navbar = () => {
                     />
                 </motion.div>
 
-                {/* Nav Items */}
-                <ul className="flex items-center gap-2">
+                {/* Desktop Nav Items */}
+                <ul className="hidden md:flex items-center gap-2">
                     {navItems.map((item, index) => (
                         <motion.li
                             key={item.name}
@@ -61,7 +75,7 @@ const Navbar = () => {
                         >
                             <a
                                 href={item.href}
-                                className="relative block px-6 py-2 text-slate-200 transition-colors duration-200 group"
+                                className="relative block px-4 sm:px-6 py-2 text-slate-200 transition-colors duration-200 group"
                             >
                                 <motion.div
                                     className="relative z-10 flex items-center gap-2"
@@ -73,10 +87,7 @@ const Navbar = () => {
                                 >
                                     <motion.span
                                         animate={{
-                                            rotate:
-                                                hoveredItem === index
-                                                    ? [0, -10, 10, 0]
-                                                    : 0,
+                                            rotate: hoveredItem === index ? [0, -10, 10, 0] : 0,
                                             scale: hoveredItem === index ? 1.2 : 0,
                                         }}
                                         transition={{ duration: 0.5 }}
@@ -129,7 +140,70 @@ const Navbar = () => {
                         </motion.li>
                     ))}
                 </ul>
+
+                {/* Mobile Menu Button */}
+                <motion.button
+                    className="md:hidden relative w-10 h-10 flex items-center justify-center"
+                    whileTap={{ scale: 0.9 }}
+                    onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                >
+                    <div className="relative w-6 h-6">
+                        <motion.span
+                            className="absolute block w-6 h-0.5 bg-white rounded-full"
+                            animate={{
+                                top: isMobileMenuOpen ? '50%' : '25%',
+                                rotate: isMobileMenuOpen ? 45 : 0,
+                            }}
+                            transition={{ duration: 0.3 }}
+                        />
+                        <motion.span
+                            className="absolute block w-6 h-0.5 bg-white rounded-full"
+                            animate={{
+                                opacity: isMobileMenuOpen ? 0 : 1,
+                                top: '50%',
+                            }}
+                            transition={{ duration: 0.3 }}
+                        />
+                        <motion.span
+                            className="absolute block w-6 h-0.5 bg-white rounded-full"
+                            animate={{
+                                top: isMobileMenuOpen ? '50%' : '75%',
+                                rotate: isMobileMenuOpen ? -45 : 0,
+                            }}
+                            transition={{ duration: 0.3 }}
+                        />
+                    </div>
+                </motion.button>
             </div>
+
+            {/* Mobile Menu */}
+            <motion.div
+                className="md:hidden fixed inset-0 bg-slate-900/95 backdrop-blur-lg z-40"
+                initial={{ opacity: 0, x: '100%' }}
+                animate={{ opacity: isMobileMenuOpen ? 1 : 0, x: isMobileMenuOpen ? 0 : '100%' }}
+                transition={{ duration: 0.3, ease: 'easeInOut' }}
+            >
+                <div className="flex flex-col items-center justify-center h-full space-y-8">
+                    {navItems.map((item, index) => (
+                        <motion.a
+                            key={item.name}
+                            href={item.href}
+                            className="text-2xl font-semibold text-white py-4 px-8 relative"
+                            onClick={handleNavClick}
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: index * 0.1 }}
+                            whileHover={{ scale: 1.1 }}
+                            whileTap={{ scale: 0.95 }}
+                        >
+                            <span className="flex items-center gap-3">
+                                <span className="text-xl">{item.icon}</span>
+                                {item.name}
+                            </span>
+                        </motion.a>
+                    ))}
+                </div>
+            </motion.div>
         </motion.nav>
     );
 };
