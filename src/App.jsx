@@ -1,6 +1,7 @@
 import Navbar from "./components/Navbar.jsx";
 import Hero from "./components/Hero.jsx";
 import Projects from "./components/Projects.jsx";
+import Skills from "./components/Skills";
 import Contact from "./components/Contact.jsx";
 import "./index.css"
 
@@ -11,6 +12,7 @@ import "./index.css"
             <Navbar />
             <Hero />
             <Projects />
+            <Skills />
             <Contact />
         </div>
     );

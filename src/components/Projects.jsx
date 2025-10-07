@@ -1,42 +1,16 @@
 import { motion } from "framer-motion";
-import {useEffect, useState} from "react";
+import { useState } from "react";
 import FadeInSection from "./FadeInSection";
+import projectsData from "../data/projectsData.js";
 
 const Projects = () => {
     const [hoveredProject, setHoveredProject] = useState(null);
 
-    const projects = [
-        {
-            id: 1,
-            title: "AI SaaS Platform",
-            description: "A modern SaaS platform with Next.js and OpenAI integration, featuring real-time AI-powered content generation and analytics.",
-            image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80",
-            tech: ["Next.js", "OpenAI", "TailwindCSS"],
-            gradient: "from-blue-500 to-cyan-500",
-            link: "#"
-        },
-        {
-            id: 2,
-            title: "Social Media Dashboard",
-            description: "A comprehensive social media management dashboard with analytics, scheduling, and engagement tracking features.",
-            image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
-            tech: ["React", "Node.js", "MongoDB"],
-            gradient: "from-purple-500 to-pink-500",
-            link: "#"
-        },
-        {
-            id: 3,
-            title: "Productivity Timer",
-            description: "A sleek productivity timer application with customizable work sessions, statistics tracking, and dark mode support.",
-            image: "https://images.unsplash.com/photo-1434494878577-86c23bcb06b9?w=800&q=80",
-            tech: ["React", "TypeScript", "TailwindCSS"],
-            gradient: "from-orange-500 to-red-500",
-            link: "#"
-        }
-    ];
-
     return (
-        <section id="projects" className="min-h-screen py-16 sm:py-20 px-4 sm:px-6 bg-gradient-to-b from-slate-900 via-slate-900 to-purple-900/20">
+        <section
+            id="projects"
+            className="min-h-screen py-16 sm:py-20 px-4 sm:px-6 bg-gradient-to-b from-slate-900 via-slate-900 to-purple-900/20"
+        >
             <div className="max-w-7xl mx-auto">
                 {/* Section Header */}
                 <motion.div
@@ -53,26 +27,28 @@ const Projects = () => {
                         transition={{ delay: 0.2 }}
                         className="inline-block mb-4"
                     >
-                        <span className="px-4 py-2 bg-purple-500/10 border border-purple-500/30 rounded-full text-purple-300 text-sm">
-                            💼 Portfolio
-                        </span>
+            <span className="px-4 py-2 bg-purple-500/10 border border-purple-500/30 rounded-full text-purple-300 text-sm">
+              💼 Portfolio
+            </span>
                     </motion.div>
+
                     <FadeInSection>
                         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
-                        <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
-                            Featured Projects
-                        </span>
+              <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+                Featured Projects
+              </span>
                         </h2>
                     </FadeInSection>
 
                     <p className="text-slate-400 text-base sm:text-lg max-w-2xl mx-auto px-4">
-                        A collection of my recent work, showcasing innovative solutions and creative implementations.
+                        A collection of my recent work, showcasing innovative solutions and
+                        creative implementations.
                     </p>
                 </motion.div>
 
                 {/* Projects Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-                    {projects.map((project, index) => (
+                    {projectsData.map((project, index) => (
                         <motion.div
                             key={project.id}
                             initial={{ opacity: 0, y: 50 }}
@@ -85,31 +61,33 @@ const Projects = () => {
                         >
                             <motion.div
                                 animate={{
-                                    y: hoveredProject === project.id ? -10 : 0
+                                    y: hoveredProject === project.id ? -10 : 0,
                                 }}
                                 transition={{ duration: 0.3 }}
                                 className="relative bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 rounded-xl sm:rounded-2xl overflow-hidden h-full"
                             >
-                                {/* Project Image */}
-                                <div className="relative h-40 sm:h-48 overflow-hidden">
+                                {/* Project Image - Updated for uniformity */}
+                                <div className="relative w-full aspect-square sm:aspect-[4/3] overflow-hidden rounded-2xl">
                                     <motion.img
                                         src={project.image}
                                         alt={project.title}
-                                        className="w-full h-full object-cover"
+                                        className="w-full h-full object-cover transition-transform duration-400"
                                         animate={{
-                                            scale: hoveredProject === project.id ? 1.1 : 1
+                                            scale: hoveredProject === project.id ? 1.1 : 1,
                                         }}
                                         transition={{ duration: 0.4 }}
                                     />
 
-                                    {/* Gradient Overlay */}
-                                    <div className={`absolute inset-0 bg-gradient-to-t ${project.gradient} opacity-0 group-hover:opacity-30 transition-opacity duration-300`}></div>
+                                    {/* Gradient overlay on hover */}
+                                    <div
+                                        className={`absolute inset-0 bg-gradient-to-t ${project.gradient} opacity-0 group-hover:opacity-30 transition-opacity duration-300`}
+                                    ></div>
 
-                                    {/* Hover Overlay with Link */}
+                                    {/* Hover overlay with button */}
                                     <motion.div
                                         initial={{ opacity: 0 }}
                                         animate={{
-                                            opacity: hoveredProject === project.id ? 1 : 0
+                                            opacity: hoveredProject === project.id ? 1 : 0,
                                         }}
                                         transition={{ duration: 0.3 }}
                                         className="absolute inset-0 bg-slate-900/80 backdrop-blur-sm flex items-center justify-center"
@@ -118,7 +96,7 @@ const Projects = () => {
                                             href={project.link}
                                             initial={{ scale: 0.8 }}
                                             animate={{
-                                                scale: hoveredProject === project.id ? 1 : 0.8
+                                                scale: hoveredProject === project.id ? 1 : 0.8,
                                             }}
                                             whileHover={{ scale: 1.1 }}
                                             whileTap={{ scale: 0.95 }}
@@ -134,7 +112,7 @@ const Projects = () => {
                                 <div className="p-4 sm:p-6">
                                     <motion.h3
                                         animate={{
-                                            color: hoveredProject === project.id ? '#fff' : '#e2e8f0'
+                                            color: hoveredProject === project.id ? "#fff" : "#e2e8f0",
                                         }}
                                         className="text-lg sm:text-xl font-bold mb-2 sm:mb-3"
                                     >
@@ -163,11 +141,11 @@ const Projects = () => {
                                     </div>
                                 </div>
 
-                                {/* Card Glow Effect */}
+                                {/* Glow Effect */}
                                 <motion.div
                                     className={`absolute inset-0 bg-gradient-to-r ${project.gradient} opacity-0 blur-xl -z-10`}
                                     animate={{
-                                        opacity: hoveredProject === project.id ? 0.2 : 0
+                                        opacity: hoveredProject === project.id ? 0.2 : 0,
                                     }}
                                     transition={{ duration: 0.3 }}
                                 />
@@ -178,11 +156,12 @@ const Projects = () => {
                                 className={`absolute top-3 right-3 sm:top-4 sm:right-4 w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-gradient-to-r ${project.gradient}`}
                                 animate={{
                                     scale: hoveredProject === project.id ? [1, 1.5, 1] : 1,
-                                    opacity: hoveredProject === project.id ? [0.5, 1, 0.5] : 0.5
+                                    opacity:
+                                        hoveredProject === project.id ? [0.5, 1, 0.5] : 0.5,
                                 }}
                                 transition={{
                                     duration: 2,
-                                    repeat: hoveredProject === project.id ? Infinity : 0
+                                    repeat: hoveredProject === project.id ? Infinity : 0,
                                 }}
                             />
                         </motion.div>
