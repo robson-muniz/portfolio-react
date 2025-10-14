@@ -1,5 +1,5 @@
-import { motion, AnimatePresence } from 'framer-motion';
-import { useState, useEffect } from 'react';
+import {motion, AnimatePresence} from 'framer-motion';
+import {useState, useEffect} from 'react';
 
 const Navbar = () => {
     const [scrolled, setScrolled] = useState(false);
@@ -33,10 +33,10 @@ const Navbar = () => {
     }, [mobileMenuOpen]);
 
     const navItems = [
-        { name: 'Home', href: '#home', icon: '🏠' },
-        { name: 'Projects', href: '#projects', icon: '💼' },
-        { name: 'Skills', href: '#skills', icon: '🛠️' },
-        { name: 'Contact', href: '#contact', icon: '📧' },
+        {name: 'Home', href: '#home', icon: '🏠'},
+        {name: 'Projects', href: '#projects', icon: '💼'},
+        {name: 'Skills', href: '#skills', icon: '🛠️'},
+        {name: 'Contact', href: '#contact', icon: '📧'},
     ];
 
     return (
@@ -47,26 +47,27 @@ const Navbar = () => {
                         ? 'bg-slate-900/95 backdrop-blur-lg shadow-2xl shadow-purple-500/10 border-b border-slate-700/30'
                         : 'bg-transparent'
                 }`}
-                initial={{ y: -100 }}
-                animate={{ y: 0 }}
-                transition={{ duration: 0.6, ease: 'easeOut' }}
+                initial={{y: -100}}
+                animate={{y: 0}}
+                transition={{duration: 0.6, ease: 'easeOut'}}
             >
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between">
                     {/* Logo */}
                     <motion.div
                         className="relative text-2xl font-bold cursor-pointer overflow-hidden group"
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
+                        whileHover={{scale: 1.05}}
+                        whileTap={{scale: 0.95}}
                     >
                         <a href="#home" className="block">
-                            <span className="relative z-10 bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
+                            <span
+                                className="relative z-10 bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
                                 RM
                             </span>
                             <motion.div
                                 className="absolute inset-0 bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-pink-500/20 blur-xl"
-                                initial={{ opacity: 0, scale: 0.5 }}
-                                whileHover={{ opacity: 1, scale: 1.5 }}
-                                transition={{ duration: 0.3 }}
+                                initial={{opacity: 0, scale: 0.5}}
+                                whileHover={{opacity: 1, scale: 1.5}}
+                                transition={{duration: 0.3}}
                             />
                         </a>
                     </motion.div>
@@ -76,9 +77,9 @@ const Navbar = () => {
                         {navItems.map((item, index) => (
                             <motion.li
                                 key={item.name}
-                                initial={{ opacity: 0, y: -20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: index * 0.1, duration: 0.5 }}
+                                initial={{opacity: 0, y: -20}}
+                                animate={{opacity: 1, y: 0}}
+                                transition={{delay: index * 0.1, duration: 0.5}}
                                 onHoverStart={() => setHoveredItem(index)}
                                 onHoverEnd={() => setHoveredItem(null)}
                             >
@@ -93,14 +94,14 @@ const Navbar = () => {
                                             scale: hoveredItem === index ? 1.05 : 1,
                                             y: hoveredItem === index ? -2 : 0,
                                         }}
-                                        transition={{ duration: 0.2 }}
+                                        transition={{duration: 0.2}}
                                     >
                                         <motion.span
                                             animate={{
                                                 rotate: hoveredItem === index ? [0, -10, 10, 0] : 0,
                                                 scale: hoveredItem === index ? 1.2 : 0,
                                             }}
-                                            transition={{ duration: 0.5 }}
+                                            transition={{duration: 0.5}}
                                             className="text-sm"
                                         >
                                             {hoveredItem === index && item.icon}
@@ -117,11 +118,11 @@ const Navbar = () => {
                                     {/* Animated underline */}
                                     <motion.span
                                         className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 rounded-full"
-                                        initial={{ scaleX: 0 }}
+                                        initial={{scaleX: 0}}
                                         animate={{
                                             scaleX: hoveredItem === index ? 1 : 0,
                                         }}
-                                        transition={{ duration: 0.3 }}
+                                        transition={{duration: 0.3}}
                                     />
                                 </a>
                             </motion.li>
@@ -132,7 +133,7 @@ const Navbar = () => {
                     <motion.button
                         className="md:hidden flex flex-col justify-center items-center w-10 h-10 relative rounded-lg bg-slate-800/50 backdrop-blur-sm border border-slate-700/50"
                         onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                        whileTap={{ scale: 0.95 }}
+                        whileTap={{scale: 0.95}}
                         aria-label="Toggle mobile menu"
                         aria-expanded={mobileMenuOpen}
                     >
@@ -168,17 +169,17 @@ const Navbar = () => {
                 {mobileMenuOpen && (
                     <>
                         <motion.div
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            exit={{ opacity: 0 }}
+                            initial={{opacity: 0}}
+                            animate={{opacity: 1}}
+                            exit={{opacity: 0}}
                             className="fixed inset-0 bg-slate-900/95 backdrop-blur-lg z-40 md:hidden"
                             onClick={() => setMobileMenuOpen(false)}
                         />
                         <motion.div
-                            initial={{ x: '100%' }}
-                            animate={{ x: 0 }}
-                            exit={{ x: '100%' }}
-                            transition={{ type: 'spring', damping: 30, stiffness: 300 }}
+                            initial={{x: '100%'}}
+                            animate={{x: 0}}
+                            exit={{x: '100%'}}
+                            transition={{type: 'spring', damping: 30, stiffness: 300}}
                             className="fixed top-0 right-0 bottom-0 w-80 max-w-full bg-slate-900/95 backdrop-blur-xl border-l border-slate-700/50 z-50 md:hidden shadow-2xl"
                         >
                             <div className="flex flex-col h-full">
@@ -193,9 +194,9 @@ const Navbar = () => {
                                         {navItems.map((item, index) => (
                                             <motion.li
                                                 key={item.name}
-                                                initial={{ x: 50, opacity: 0 }}
-                                                animate={{ x: 0, opacity: 1 }}
-                                                transition={{ delay: index * 0.1 + 0.2 }}
+                                                initial={{x: 50, opacity: 0}}
+                                                animate={{x: 0, opacity: 1}}
+                                                transition={{delay: index * 0.1 + 0.2}}
                                             >
                                                 <a
                                                     href={item.href}
