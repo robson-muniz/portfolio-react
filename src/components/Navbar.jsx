@@ -89,7 +89,7 @@ const Navbar = () => {
                                     aria-label={`Navigate to ${item.name}`}
                                 >
                                     <motion.div
-                                        className="relative z-10 flex items-center gap-2"
+                                        className="relative z-10 flex items-center gap-3"
                                         animate={{
                                             scale: hoveredItem === index ? 1.05 : 1,
                                             y: hoveredItem === index ? -2 : 0,
