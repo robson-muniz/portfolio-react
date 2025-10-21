@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import Navbar from "./components/Navbar.jsx";
 import Hero from "./components/Hero.jsx";
 import Projects from "./components/Projects.jsx";
@@ -6,6 +7,17 @@ import Contact from "./components/Contact.jsx";
 import "./index.css";
 
 function App() {
+    useEffect(() => {
+        // Fire a page_view event to Google Analytics when the app loads
+        if (window.gtag) {
+            window.gtag("event", "page_view", {
+                page_location: window.location.href,
+                page_path: window.location.pathname,
+                page_title: document.title,
+            });
+        }
+    }, []);
+
     return (
         <div className="bg-slate-900 text-white min-h-screen">
             <Navbar />
