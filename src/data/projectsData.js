@@ -19,15 +19,17 @@ const projectsData = [
         gradient: "from-emerald-500 to-teal-500",
         link: "https://travel-list-nu-nine.vercel.app/"
     },
+
     {
         id: 3,
-        title: "Tic Tac Toe",
+        title: "Memory Match Game",
         description:
-            "A simple yet polished Tic Tac Toe game built in React, showcasing game logic, useReducer, and component reusability.",
-        image: "/images/tic-tac.png",
-        tech: ["React", "useReducer", "useState", "props"],
-        gradient: "from-orange-500 to-pink-500",
-        link: "https://cheerful-empanada-bb1fe5.netlify.app/"
+            "A beautiful, responsive memory card matching game built with React. Test your memory and concentration by matching pairs of cards in the fewest moves and shortest time possible!",
+        image: "/images/memory.png",
+        tech: ["React", "useState", "useEffect", "CSS Grid"],
+        gradient: "from-purple-500 to-pink-500",
+        link: "https://memory-game-card-delta.vercel.app/",
+        repo: "https://github.com/robson-muniz/memory-game-card"
     }
 ];
 
