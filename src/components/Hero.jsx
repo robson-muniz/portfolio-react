@@ -178,18 +178,41 @@ const Hero = () => {
                         transition={{ duration: 0.8, delay: 0.3 }}
                         className="relative"
                     >
-                        {/* Main visual container */}
+                        {/* Main visual container with elastic animation */}
                         <motion.div
                             className="relative bg-gray-800/30 backdrop-blur-xl rounded-3xl shadow-2xl overflow-hidden border border-gray-700/50"
+                            initial={{ scale: 0.95, opacity: 0 }}
                             animate={{
+                                scale: 1,
+                                opacity: 1,
                                 boxShadow: [
                                     '0 20px 40px rgba(168, 85, 247, 0.1)',
-                                    '0 20px 40px rgba(236, 72, 153, 0.15)',
+                                    '0 25px 45px rgba(236, 72, 153, 0.15)',
                                     '0 20px 40px rgba(168, 85, 247, 0.1)'
                                 ]
                             }}
-                            transition={{ duration: 3, repeat: Infinity }}
-                            whileHover={{ y: -5 }}
+                            transition={{
+                                scale: {
+                                    duration: 0.8,
+                                    type: "spring",
+                                    stiffness: 100,
+                                    damping: 15
+                                },
+                                opacity: { duration: 0.6 },
+                                boxShadow: {
+                                    duration: 4,
+                                    repeat: Infinity,
+                                    ease: "easeInOut"
+                                }
+                            }}
+                            whileHover={{
+                                y: -5,
+                                transition: {
+                                    type: "spring",
+                                    stiffness: 400,
+                                    damping: 25
+                                }
+                            }}
                         >
                             {/* Decorative elements */}
                             <div className="absolute top-0 left-0 w-32 h-32 bg-gradient-to-br from-purple-500/10 to-pink-500/10 rounded-full -translate-x-16 -translate-y-16" />
@@ -197,30 +220,70 @@ const Hero = () => {
 
                             {/* Content */}
                             <div className="relative z-10 p-8">
-                                {/* Code snippet */}
-                                <div className="mb-8">
+                                {/* Code snippet with typing effect */}
+                                <motion.div
+                                    className="mb-8 relative"
+                                    initial={{ opacity: 0, y: 20 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ delay: 0.5, duration: 0.6 }}
+                                >
                                     <div className="flex items-center gap-2 mb-4">
                                         <div className="flex gap-2">
-                                            <div className="w-3 h-3 rounded-full bg-red-400"></div>
-                                            <div className="w-3 h-3 rounded-full bg-yellow-400"></div>
-                                            <div className="w-3 h-3 rounded-full bg-green-400"></div>
+                                            <motion.div
+                                                className="w-3 h-3 rounded-full bg-red-400"
+                                                animate={{ scale: [1, 1.2, 1] }}
+                                                transition={{ duration: 2, repeat: Infinity, delay: 0 }}
+                                            />
+                                            <motion.div
+                                                className="w-3 h-3 rounded-full bg-yellow-400"
+                                                animate={{ scale: [1, 1.2, 1] }}
+                                                transition={{ duration: 2, repeat: Infinity, delay: 0.2 }}
+                                            />
+                                            <motion.div
+                                                className="w-3 h-3 rounded-full bg-green-400"
+                                                animate={{ scale: [1, 1.2, 1] }}
+                                                transition={{ duration: 2, repeat: Infinity, delay: 0.4 }}
+                                            />
                                         </div>
-                                        <span className="text-sm text-gray-400 font-mono">developer.js</span>
+                                        <motion.span
+                                            className="text-sm text-gray-400 font-mono"
+                                            initial={{ opacity: 0 }}
+                                            animate={{ opacity: 1 }}
+                                            transition={{ delay: 0.6 }}
+                                        >
+                                            developer.js
+                                        </motion.span>
                                     </div>
-                                    <div className="bg-gray-900/50 rounded-xl p-6 overflow-x-auto border border-gray-700/50">
-                                        <code className="text-gray-300 font-mono text-sm">
-                                            {`const developer = {
+                                    <motion.div
+                                        className="bg-gray-900/50 rounded-xl p-6 overflow-x-auto border border-gray-700/50"
+                                        initial={{ opacity: 0, scale: 0.98 }}
+                                        animate={{ opacity: 1, scale: 1 }}
+                                        transition={{ delay: 0.7, duration: 0.5 }}
+                                        whileHover={{
+                                            scale: 1.01,
+                                            borderColor: "rgba(168, 85, 247, 0.3)",
+                                            transition: { duration: 0.3 }
+                                        }}
+                                    >
+                                        <motion.pre
+                                            initial={{ opacity: 0 }}
+                                            animate={{ opacity: 1 }}
+                                            transition={{ delay: 0.8, duration: 0.6 }}
+                                        >
+                                            <code className="text-gray-300 font-mono text-sm">
+                                                {`const developer = {
   name: "Robson Muniz",
   role: "Full Stack Developer",
   skills: ["React", "TypeScript", "Node.js"],
   philosophy: "Clean code, scalable solutions",
   status: "Building amazing things 🚀"
 };`}
-                                        </code>
-                                    </div>
-                                </div>
+                                            </code>
+                                        </motion.pre>
+                                    </motion.div>
+                                </motion.div>
 
-                                {/* Feature cards */}
+                                {/* Feature cards with staggered animation */}
                                 <div className="grid grid-cols-2 gap-4">
                                     {[
                                         { icon: <Zap className="w-6 h-6" />, title: 'Fast', desc: 'Performance focused', color: 'text-yellow-400' },
@@ -230,11 +293,25 @@ const Hero = () => {
                                     ].map((item, index) => (
                                         <motion.div
                                             key={item.title}
-                                            initial={{ opacity: 0, y: 20 }}
-                                            animate={{ opacity: 1, y: 0 }}
-                                            transition={{ delay: 0.5 + index * 0.1 }}
-                                            whileHover={{ y: -5, scale: 1.02 }}
-                                            className="bg-gray-800/50 backdrop-blur-sm p-4 rounded-xl border border-gray-700/50 shadow-lg"
+                                            initial={{ opacity: 0, y: 20, scale: 0.95 }}
+                                            animate={{ opacity: 1, y: 0, scale: 1 }}
+                                            transition={{
+                                                delay: 0.9 + index * 0.1,
+                                                duration: 0.5,
+                                                type: "spring",
+                                                stiffness: 200,
+                                                damping: 15
+                                            }}
+                                            whileHover={{
+                                                y: -5,
+                                                scale: 1.02,
+                                                transition: {
+                                                    type: "spring",
+                                                    stiffness: 400,
+                                                    damping: 25
+                                                }
+                                            }}
+                                            className="bg-gray-800/50 backdrop-blur-sm p-4 rounded-xl border border-gray-700/50 shadow-lg relative"
                                         >
                                             <div className={`mb-2 ${item.color}`}>
                                                 {item.icon}
@@ -249,35 +326,106 @@ const Hero = () => {
                                     ))}
                                 </div>
                             </div>
+                        </motion.div>
 
-                            {/* Floating badge */}
-                            <motion.div
-                                animate={{ y: [0, -10, 0] }}
-                                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                                className="absolute -top-3 -right-3 bg-gradient-to-r from-purple-500 to-pink-500 text-white px-4 py-2 rounded-lg shadow-xl border border-white/10"
-                            >
-                                <div className="flex items-center gap-2">
-                                    <Sparkles className="w-4 h-4" />
-                                    <span className="font-semibold text-sm">Available</span>
-                                </div>
-                            </motion.div>
+                        {/* FIXED: Floating badge - positioned outside the container */}
+                        <motion.div
+                            initial={{ scale: 0, opacity: 0 }}
+                            animate={{
+                                scale: 1,
+                                opacity: 1,
+                                y: [0, -8, 0]
+                            }}
+                            transition={{
+                                scale: {
+                                    duration: 0.5,
+                                    delay: 1.2,
+                                    type: "spring",
+                                    stiffness: 200,
+                                    damping: 15
+                                },
+                                opacity: { duration: 0.5, delay: 1.2 },
+                                y: {
+                                    duration: 3,
+                                    repeat: Infinity,
+                                    ease: "easeInOut"
+                                }
+                            }}
+                            className="absolute -top-4 -right-4 bg-gradient-to-r from-purple-500 to-pink-500 text-white px-4 py-2 rounded-lg shadow-xl border border-white/10 z-20"
+                        >
+                            <div className="flex items-center gap-2">
+                                <Sparkles className="w-4 h-4" />
+                                <span className="font-semibold text-sm">Available</span>
+                            </div>
                         </motion.div>
 
                         {/* Floating elements */}
                         <motion.div
-                            animate={{ y: [0, -20, 0] }}
-                            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                            className="absolute -top-6 -left-6 w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500/20 to-pink-500/20 border border-purple-500/30 flex items-center justify-center"
+                            initial={{ scale: 0, opacity: 0 }}
+                            animate={{
+                                scale: 1,
+                                opacity: 1,
+                                y: [0, -15, 0],
+                                rotate: [0, 5, -5, 0]
+                            }}
+                            transition={{
+                                scale: {
+                                    duration: 0.5,
+                                    delay: 1.3,
+                                    type: "spring",
+                                    stiffness: 150,
+                                    damping: 12
+                                },
+                                opacity: { duration: 0.5, delay: 1.3 },
+                                y: {
+                                    duration: 4,
+                                    repeat: Infinity,
+                                    ease: "easeInOut"
+                                },
+                                rotate: {
+                                    duration: 6,
+                                    repeat: Infinity,
+                                    ease: "easeInOut"
+                                }
+                            }}
+                            className="absolute -top-8 -left-8 w-16 h-16 rounded-xl bg-gradient-to-br from-purple-500/20 to-pink-500/20 border border-purple-500/30 flex items-center justify-center z-10"
                         >
-                            <div className="text-purple-400 text-lg">⚡</div>
+                            <div className="text-purple-400 text-2xl">⚡</div>
                         </motion.div>
 
                         <motion.div
-                            animate={{ y: [0, 20, 0] }}
-                            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                            className="absolute -bottom-6 -right-6 w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500/20 to-cyan-500/20 border border-blue-500/30 flex items-center justify-center"
+                            initial={{ scale: 0, opacity: 0 }}
+                            animate={{
+                                scale: 1,
+                                opacity: 1,
+                                y: [0, 15, 0],
+                                rotate: [0, -5, 5, 0]
+                            }}
+                            transition={{
+                                scale: {
+                                    duration: 0.5,
+                                    delay: 1.4,
+                                    type: "spring",
+                                    stiffness: 150,
+                                    damping: 12
+                                },
+                                opacity: { duration: 0.5, delay: 1.4 },
+                                y: {
+                                    duration: 4,
+                                    repeat: Infinity,
+                                    ease: "easeInOut",
+                                    delay: 0.5
+                                },
+                                rotate: {
+                                    duration: 6,
+                                    repeat: Infinity,
+                                    ease: "easeInOut",
+                                    delay: 0.5
+                                }
+                            }}
+                            className="absolute -bottom-8 -right-8 w-16 h-16 rounded-xl bg-gradient-to-br from-blue-500/20 to-cyan-500/20 border border-blue-500/30 flex items-center justify-center z-10"
                         >
-                            <div className="text-blue-400 text-lg">🎨</div>
+                            <div className="text-blue-400 text-2xl">🎨</div>
                         </motion.div>
                     </motion.div>
                 </div>
