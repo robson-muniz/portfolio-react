@@ -1,113 +1,187 @@
 import { motion } from "framer-motion";
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { Code, Palette, Database, Cloud, Zap, Cpu, Smartphone, Server, Layers, Terminal } from 'lucide-react';
 
 const Skills = () => {
-    const [isVisible, setIsVisible] = useState(false);
+    const [activeCategory, setActiveCategory] = useState("frontend");
 
-    const skills = [
-        { name: "React", level: 95, color: "#61DAFB" },
-        { name: "JavaScript", level: 90, color: "#F7DF1E" },
-        { name: "TypeScript", level: 85, color: "#3178C6" },
-        { name: "Node.js", level: 88, color: "#339933" },
-        { name: "Python", level: 82, color: "#3776AB" },
-        { name: "MongoDB", level: 80, color: "#47A248" },
-        { name: "CSS/Sass", level: 92, color: "#1572B6" },
-        { name: "Docker", level: 75, color: "#2496ED" },
+    const skillCategories = [
+        {
+            id: "frontend",
+            title: "Frontend",
+            icon: <Palette className="w-5 h-5" />,
+            color: "from-purple-500 to-pink-500",
+            skills: [
+                { name: "React", level: 95 },
+                { name: "TypeScript", level: 90 },
+                { name: "Next.js", level: 88 },
+                { name: "Tailwind CSS", level: 92 },
+            ]
+        },
+        {
+            id: "backend",
+            title: "Backend",
+            icon: <Server className="w-5 h-5" />,
+            color: "from-blue-500 to-cyan-500",
+            skills: [
+                { name: "Node.js", level: 90 },
+                { name: "Python", level: 85 },
+                { name: "PostgreSQL", level: 82 },
+                { name: "MongoDB", level: 80 },
+            ]
+        },
+        {
+            id: "tools",
+            title: "Tools & DevOps",
+            icon: <Cloud className="w-5 h-5" />,
+            color: "from-emerald-500 to-teal-500",
+            skills: [
+                { name: "Docker", level: 78 },
+                { name: "AWS", level: 75 },
+                { name: "Git", level: 92 },
+                { name: "CI/CD", level: 80 },
+            ]
+        }
     ];
 
     const technologies = [
-        { name: "React", icon: "⚛️" },
-        { name: "Next.js", icon: "🔺" },
-        { name: "Node.js", icon: "🟢" },
-        { name: "Python", icon: "🐍" },
-        { name: "TypeScript", icon: "📘" },
-        { name: "MongoDB", icon: "🍃" },
-        { name: "Docker", icon: "🐳" },
-        { name: "AWS", icon: "☁️" },
-        { name: "Git", icon: "📱" },
-        { name: "Figma", icon: "🎨" },
+        { name: "React", icon: <Cpu className="w-6 h-6" />, category: "frontend" },
+        { name: "TypeScript", icon: <Code className="w-6 h-6" />, category: "frontend" },
+        { name: "Next.js", icon: <Layers className="w-6 h-6" />, category: "fullstack" },
+        { name: "Node.js", icon: <Server className="w-6 h-6" />, category: "backend" },
+        { name: "Python", icon: <Terminal className="w-6 h-6" />, category: "backend" },
+        { name: "PostgreSQL", icon: <Database className="w-6 h-6" />, category: "database" },
+        { name: "MongoDB", icon: <Database className="w-6 h-6" />, category: "database" },
+        { name: "Docker", icon: <Cloud className="w-6 h-6" />, category: "devops" },
+        { name: "AWS", icon: <Cloud className="w-6 h-6" />, category: "cloud" },
+        { name: "Tailwind", icon: <Palette className="w-6 h-6" />, category: "frontend" },
+        { name: "GraphQL", icon: <Code className="w-6 h-6" />, category: "api" },
+        { name: "Redis", icon: <Zap className="w-6 h-6" />, category: "cache" },
     ];
 
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-                if (entry.isIntersecting) setIsVisible(true);
-            },
-            { threshold: 0.3 }
-        );
-
-        const section = document.getElementById("skills");
-        if (section) observer.observe(section);
-
-        return () => observer.disconnect();
-    }, []);
-
-    const containerVariants = {
-        hidden: { opacity: 0 },
-        visible: {
-            opacity: 1,
-            transition: { staggerChildren: 0.1, delayChildren: 0.2 },
-        },
-    };
-
-    const itemVariants = {
-        hidden: { opacity: 0, y: 20 },
-        visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
-    };
+    const activeCategoryData = skillCategories.find(cat => cat.id === activeCategory);
 
     return (
         <section
             id="skills"
-            className="relative py-16 sm:py-20 px-4 sm:px-6 bg-gradient-to-b from-slate-900 via-slate-900 to-purple-900/20 overflow-hidden"
+            className="py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden"
         >
-            {/* Background pattern */}
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_50%,rgba(124,58,237,0.1)_0%,transparent_50%),radial-gradient(circle_at_80%_20%,rgba(219,39,119,0.1)_0%,transparent_50%)] pointer-events-none" />
+            {/* Background gradient */}
+            <div className="absolute inset-0 bg-gradient-to-b from-gray-900 via-gray-900/95 to-gray-900" />
 
-            <motion.div
-                variants={containerVariants}
-                initial="hidden"
-                animate={isVisible ? "visible" : "hidden"}
-                className="relative z-10 max-w-7xl mx-auto"
-            >
+            {/* Animated grid */}
+            <div className="absolute inset-0 grid-pattern opacity-5" />
+
+            {/* Floating orbs */}
+            <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-gradient-to-r from-purple-500/5 to-pink-500/5 rounded-full blur-3xl animate-pulse" />
+
+            <div className="max-w-7xl mx-auto relative z-10">
                 {/* Section Header */}
-                <motion.div variants={itemVariants} className="text-center mb-16">
-                    <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400">
-                        Skills & Technologies
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-100px" }}
+                    transition={{ duration: 0.6 }}
+                    className="text-center mb-16"
+                >
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
+                        className="inline-block mb-6"
+                    >
+                        <span className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-purple-500/10 to-pink-500/10 border border-purple-500/20 rounded-full text-purple-400 font-medium">
+                            <Code className="w-4 h-4 mr-2" />
+                            Skills & Expertise
+                        </span>
+                    </motion.div>
+
+                    <h2 className="text-4xl sm:text-5xl font-bold mb-6">
+                        <span className="text-white">Technical </span>
+                        <span className="gradient-text">
+                            Proficiency
+                        </span>
                     </h2>
-                    <p className="text-slate-400 text-base sm:text-lg max-w-2xl mx-auto px-4">
-                        Constantly learning and evolving with the latest technologies to create exceptional digital experiences.
+
+                    <p className="text-lg text-gray-300 max-w-2xl mx-auto">
+                        A comprehensive toolkit for building modern, scalable, and high-performance applications.
                     </p>
                 </motion.div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    {/* Skill Bars */}
-                    <motion.div
-                        variants={itemVariants}
-                        className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-slate-700/50 shadow-lg"
-                    >
-                        <h3 className="text-xl sm:text-2xl font-semibold text-center mb-6 text-slate-100">
-                            Proficiency Levels
-                        </h3>
+                {/* Category Tabs */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.2 }}
+                    className="flex flex-wrap justify-center gap-3 mb-12"
+                >
+                    {skillCategories.map((category) => (
+                        <motion.button
+                            key={category.id}
+                            onClick={() => setActiveCategory(category.id)}
+                            whileHover={{ scale: 1.05, y: -2 }}
+                            whileTap={{ scale: 0.95 }}
+                            className={`flex items-center gap-2 px-6 py-3 rounded-xl border transition-all duration-300 font-medium ${
+                                activeCategory === category.id
+                                    ? `bg-gradient-to-r ${category.color} text-white border-transparent shadow-lg`
+                                    : "bg-gray-800/50 backdrop-blur-sm border-gray-700 text-gray-300 hover:border-purple-500/50 hover:text-purple-400"
+                            }`}
+                        >
+                            {category.icon}
+                            {category.title}
+                        </motion.button>
+                    ))}
+                </motion.div>
 
-                        <div className="flex flex-col gap-4">
-                            {skills.map((skill, index) => (
+                <div className="grid lg:grid-cols-2 gap-12 items-start">
+                    {/* Skills Visualization */}
+                    <motion.div
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.3 }}
+                        className="bg-gray-800/30 backdrop-blur-sm rounded-2xl p-8 border border-gray-700/50 shadow-xl"
+                    >
+                        <div className="flex items-center gap-3 mb-8">
+                            <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${activeCategoryData.color} flex items-center justify-center`}>
+                                {activeCategoryData.icon}
+                            </div>
+                            <div>
+                                <h3 className="text-2xl font-bold text-white">
+                                    {activeCategoryData.title}
+                                </h3>
+                                <p className="text-gray-400">
+                                    Expertise level
+                                </p>
+                            </div>
+                        </div>
+
+                        <div className="space-y-6">
+                            {activeCategoryData.skills.map((skill, index) => (
                                 <motion.div
                                     key={skill.name}
                                     initial={{ opacity: 0, x: -20 }}
-                                    animate={isVisible ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
-                                    transition={{ delay: index * 0.1 + 0.5, duration: 0.6 }}
+                                    whileInView={{ opacity: 1, x: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ delay: index * 0.1 }}
+                                    className="space-y-2"
                                 >
-                                    <div className="flex justify-between mb-1 text-slate-200 font-medium">
-                                        <span>{skill.name}</span>
-                                        <span className="text-slate-400 text-sm">{skill.level}%</span>
+                                    <div className="flex justify-between items-center">
+                                        <span className="font-medium text-white">
+                                            {skill.name}
+                                        </span>
+                                        <span className="text-sm font-semibold text-purple-400">
+                                            {skill.level}%
+                                        </span>
                                     </div>
-                                    <div className="w-full h-2 bg-slate-700 rounded-full overflow-hidden">
+                                    <div className="h-2 bg-gray-700/50 rounded-full overflow-hidden">
                                         <motion.div
                                             initial={{ width: 0 }}
-                                            animate={isVisible ? { width: `${skill.level}%` } : { width: 0 }}
-                                            transition={{ delay: index * 0.1 + 0.8, duration: 1, ease: "easeOut" }}
-                                            className="h-full rounded-full"
-                                            style={{ background: skill.color }}
+                                            whileInView={{ width: `${skill.level}%` }}
+                                            viewport={{ once: true }}
+                                            transition={{ delay: index * 0.1 + 0.5, duration: 1, ease: "easeOut" }}
+                                            className={`h-full rounded-full bg-gradient-to-r ${activeCategoryData.color}`}
                                         />
                                     </div>
                                 </motion.div>
@@ -115,35 +189,77 @@ const Skills = () => {
                         </div>
                     </motion.div>
 
-                    {/* Technology Grid */}
+                    {/* Technology Cloud */}
                     <motion.div
-                        variants={itemVariants}
-                        className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-slate-700/50 shadow-lg"
+                        initial={{ opacity: 0, x: 20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.4 }}
+                        className="space-y-8"
                     >
-                        <h3 className="text-xl sm:text-2xl font-semibold text-center mb-6 text-slate-100">
-                            Technologies & Tools
-                        </h3>
+                        <div>
+                            <h3 className="text-2xl font-bold text-white mb-6">
+                                Technology Stack
+                            </h3>
+                            <div className="flex flex-wrap gap-3">
+                                {technologies.map((tech, index) => (
+                                    <motion.div
+                                        key={tech.name}
+                                        initial={{ opacity: 0, scale: 0.8 }}
+                                        whileInView={{ opacity: 1, scale: 1 }}
+                                        viewport={{ once: true }}
+                                        transition={{ delay: index * 0.05 }}
+                                        whileHover={{ scale: 1.05, y: -3 }}
+                                        className="px-4 py-3 bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-xl flex items-center gap-3 hover:border-purple-500/30 transition-all duration-300 cursor-default shadow-lg"
+                                    >
+                                        <div className="text-purple-400">
+                                            {tech.icon}
+                                        </div>
+                                        <span className="font-medium text-white">
+                                            {tech.name}
+                                        </span>
+                                    </motion.div>
+                                ))}
+                            </div>
+                        </div>
 
-                        <div className="grid grid-cols-3 sm:grid-cols-4 gap-4">
-                            {technologies.map((tech, index) => (
-                                <motion.div
-                                    key={tech.name}
-                                    initial={{ opacity: 0, scale: 0.8 }}
-                                    animate={isVisible ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
-                                    transition={{ delay: index * 0.1 + 0.3, duration: 0.5 }}
-                                    whileHover={{ scale: 1.05, y: -3, transition: { duration: 0.2 } }}
-                                    className="flex flex-col items-center p-4 bg-slate-700/30 rounded-xl border border-slate-600/40 cursor-default"
-                                >
-                                    <span className="text-2xl mb-2">{tech.icon}</span>
-                                    <span className="text-sm font-medium text-slate-100 text-center">{tech.name}</span>
-                                </motion.div>
-                            ))}
+                        {/* Experience Stats */}
+                        <div className="bg-gradient-to-r from-purple-500/5 to-pink-500/5 rounded-2xl p-6 border border-purple-500/10">
+                            <h4 className="text-lg font-semibold text-white mb-4">
+                                Development Philosophy
+                            </h4>
+                            <div className="grid grid-cols-2 gap-4">
+                                {[
+                                    { value: "100%", label: "Code Quality", icon: "✓" },
+                                    { value: "24/7", label: "Support", icon: "🕒" },
+                                    { value: "Agile", label: "Methodology", icon: "⚡" },
+                                    { value: "Test-Driven", label: "Development", icon: "🧪" },
+                                ].map((stat, index) => (
+                                    <motion.div
+                                        key={stat.label}
+                                        initial={{ opacity: 0, scale: 0.9 }}
+                                        whileInView={{ opacity: 1, scale: 1 }}
+                                        viewport={{ once: true }}
+                                        transition={{ delay: index * 0.1 }}
+                                        whileHover={{ scale: 1.05 }}
+                                        className="text-center p-4 bg-gray-800/30 rounded-xl border border-gray-700/50"
+                                    >
+                                        <div className="text-2xl mb-2">{stat.icon}</div>
+                                        <div className="text-xl font-bold text-purple-400">
+                                            {stat.value}
+                                        </div>
+                                        <div className="text-sm text-gray-400">
+                                            {stat.label}
+                                        </div>
+                                    </motion.div>
+                                ))}
+                            </div>
                         </div>
                     </motion.div>
                 </div>
-            </motion.div>
+            </div>
         </section>
     );
 };
 
-export default Skills
+export default Skills;
