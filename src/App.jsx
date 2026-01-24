@@ -5,6 +5,7 @@ import LoadingScreen from './components/LoadingScreen'
 import SmoothScroll from './components/SmoothScroll'
 import BackgroundEffects from './components/BackgroundEffects'
 import BackToTop from './components/BackToTop'
+import SectionDivider from './components/SectionDivider'
 
 // Lazy load heavy components
 const Hero = lazy(() => import('./components/Hero'))
@@ -49,15 +50,19 @@ function App() {
                         <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading...</div>}>
                             <Hero />
                         </Suspense>
+                        <SectionDivider index={0} />
                         <Suspense fallback={<div className="h-96" />}>
                             <Projects />
                         </Suspense>
+                        <SectionDivider index={1} />
                         <Suspense fallback={<div className="h-96" />}>
                             <Skills />
                         </Suspense>
+                        <SectionDivider index={2} />
                         <Suspense fallback={<div className="h-96" />}>
                             <Contact />
                         </Suspense>
+                        <SectionDivider index={3} />
                         <Suspense fallback={null}>
                             <Footer />
                         </Suspense>
