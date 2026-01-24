@@ -58,7 +58,7 @@ const Hero = () => {
                                     Hi, I'm Robson
                                 </span>
                                 <span className="gradient-text">
-                                    Full Stack Developer
+                                    React Developer
                                 </span>
                             </motion.h1>
 
@@ -68,8 +68,7 @@ const Hero = () => {
                                 transition={{ delay: 0.4 }}
                                 className="text-lg text-gray-300 leading-relaxed max-w-xl"
                             >
-                                I craft exceptional digital experiences using modern technologies.
-                                Transforming complex challenges into elegant, scalable solutions.
+                                Based in Portugal • Open to Germany/EU • English & Portuguese • Available now!
                             </motion.p>
                         </div>
 
