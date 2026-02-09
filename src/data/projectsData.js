@@ -27,7 +27,7 @@ const projectsData = [
         title: "Coinverter — Currency Converter",
         description: "Clean currency converter with real-time rates and a simple UX.",
         image: "/projects/Coinverter.png",
-        link: "https://coinverter.pt/",
+        link: "https://coinverter-mu.vercel.app/",
         github: "https://github.com/robson-muniz/coinverter",
         tech: ["React", "JavaScript", "API"],
         category: "web",
