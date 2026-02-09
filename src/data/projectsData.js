@@ -1,5 +1,16 @@
 const projectsData = [
     {
+        id: "crypto-commerce",
+        title: "CryptoCommerce — Digital Marketplace",
+        description: "High-performance decentralized marketplace with crypto payments, instant delivery, and glassmorphic UI.",
+        image: "/projects/crypto-commerce.png",
+        link: "https://www.cryptocommerce.pt",
+        github: "https://github.com/robson-muniz/crypto-commerce",
+        tech: ["Next.js", "TypeScript", "Prisma", "Bitcoin"],
+        category: "web",
+        icon: "₿",
+    },
+    {
         id: "shopstyle",
         title: "ShopStyle — E-Commerce UI",
         description:
@@ -9,7 +20,7 @@ const projectsData = [
         github: "https://github.com/robson-muniz/shopping-cart-ui",
         tech: ["React", "Vite", "Tailwind", "Framer Motion"],
         category: "web",
-        icon: "🛒",
+        icon: "�",
     },
     {
         id: "coinverter",
@@ -21,17 +32,6 @@ const projectsData = [
         tech: ["React", "JavaScript", "API"],
         category: "web",
         icon: "💱",
-    },
-    {
-        id: "crypto-commerce",
-        title: "CryptoCommerce — Digital Marketplace",
-        description: "High-performance decentralized marketplace with crypto payments, instant delivery, and glassmorphic UI.",
-        image: "/projects/crypto-commerce.png",
-        link: "https://www.cryptocommerce.pt",
-        github: "https://github.com/robson-muniz/crypto-commerce",
-        tech: ["Next.js", "TypeScript", "Prisma", "Bitcoin"],
-        category: "web",
-        icon: "₿",
     },
     {
         id: "memory-game",
