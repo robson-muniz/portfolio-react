@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+/* Your custom CSS below */
+@theme {
+    --color-background: hsl(240 10% 4%);
+    --color-foreground: hsl(0 0% 98%);
+    --color-card: hsl(240 10% 6%);
+    --color-card-foreground: hsl(0 0% 98%);
+    --color-primary: hsl(252 94% 67%);
+    --color-primary-foreground: hsl(0 0% 98%);
+    --color-secondary: hsl(240 3.7% 16%);
+    --color-secondary-foreground: hsl(0 0% 98%);
+    --color-muted: hsl(240 3.7% 16%);
+    --color-muted-foreground: hsl(240 5% 64%);
+    --color-accent: hsl(240 3.7% 16%);
+    --color-accent-foreground: hsl(0 0% 98%);
+    --color-border: hsl(240 3.7% 20%);
+    --color-input: hsl(240 3.7% 16%);
+    --color-ring: hsl(252 94% 67%);
+
+    --radius-lg: 0.5rem;
+    --radius-md: calc(var(--radius-lg) - 2px);
+    --radius-sm: calc(var(--radius-lg) - 4px);
+
+    --font-sans: 'Inter', system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+
+    --animate-float: float 6s ease-in-out infinite;
+    --animate-gradient: gradient 8s ease infinite;
+    --animate-pulse-slow: pulse 3s ease-in-out infinite;
+}
+
+/* Custom utilities */
+@layer utilities {
+    .gradient-text {
+        @apply bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent;
+        background-size: 200% 200%;
+        animation: var(--animate-gradient);
+    }
+
+    .glass {
+        @apply bg-white/5 backdrop-blur-sm border border-white/10;
+    }
+
+    .grid-pattern {
+        background-image:
+                linear-gradient(to right, rgb(168 85 247 / 0.1) 1px, transparent 1px),
+                linear-gradient(to bottom, rgb(168 85 247 / 0.1) 1px, transparent 1px);
+        background-size: 50px 50px;
+    }
+}
+
+/* Custom animations */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes gradient {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: hsl(var(--secondary) / 0.2);
+}
+
+::-webkit-scrollbar-thumb {
+    background: hsl(var(--primary) / 0.4);
+    border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--primary) / 0.6);
+}
+
+::selection {
+    background: hsl(var(--primary) / 0.3);
+    color: hsl(var(--foreground));
+}
+
+* {
+    @apply border-border transition-colors duration-200;
+}
+
+body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+}
