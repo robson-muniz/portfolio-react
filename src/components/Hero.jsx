@@ -133,8 +133,8 @@ const Hero = () => {
                             </motion.a>
 
                             <motion.a
-                                href="/Robson_Muniz_Lebenslauf_Germany.pdf"
-                                download="Robson_Muniz_Frontend_Developer_CV.pdf"
+                                href="/Robson_Muniz_Resume.pdf"
+                                download="Robson_Muniz_Resume.pdf"
                                 onClick={handleResumeDownload}
                                 whileHover={{ scale: 1.05, y: -2 }}
                                 whileTap={{ scale: 0.95 }}
