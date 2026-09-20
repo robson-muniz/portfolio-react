@@ -2,7 +2,7 @@ import { ArrowUpRight, ShoppingBag } from "lucide-react";
 import { featuredProject } from "../../data/content";
 import Container from "../ui/Container";
 import Reveal from "../ui/Reveal";
-import ArchitectureDiagram from "./ArchitectureDiagram";
+import AuthKitShowcase from "./AuthKitShowcase";
 
 const FeaturedWork = () => {
     const project = featuredProject;
@@ -65,9 +65,9 @@ const FeaturedWork = () => {
                     </p>
                 </Reveal>
 
-                {/* Architecture diagram */}
+                {/* AuthKit Interactive Showcase & Visual Preview */}
                 <Reveal delay={0.08} className="mt-12">
-                    <ArchitectureDiagram />
+                    <AuthKitShowcase />
                 </Reveal>
 
                 {/* Problem / Solution */}

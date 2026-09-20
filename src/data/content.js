@@ -30,6 +30,7 @@ export const featuredProject = {
     status: "Commercial product",
     github: "https://github.com/robson-muniz/secureauth-kit",
     gumroad: "https://robmuniz.gumroad.com/l/SecureAuthKit",
+    image: "/projects/secureauth-kit.png",
     summary:
         "A reusable authentication foundation for product work — so registration, login, and password recovery are treated as application infrastructure, not a one-off form on every new build.",
     problem:
