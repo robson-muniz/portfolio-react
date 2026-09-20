@@ -1,49 +1,31 @@
-import { motion, AnimatePresence } from 'framer-motion';
-import { useState, useEffect } from 'react';
-import { ChevronUp } from 'lucide-react';
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { useEffect, useState } from "react";
+import { ChevronUp } from "lucide-react";
 
 const BackToTop = () => {
-    const [isVisible, setIsVisible] = useState(false);
+    const [visible, setVisible] = useState(false);
+    const reduce = useReducedMotion();
 
     useEffect(() => {
-        const toggleVisibility = () => {
-            if (window.scrollY > 500) {
-                setIsVisible(true);
-            } else {
-                setIsVisible(false);
-            }
-        };
-
-        window.addEventListener('scroll', toggleVisibility);
-        return () => window.removeEventListener('scroll', toggleVisibility);
+        const onScroll = () => setVisible(window.scrollY > 640);
+        onScroll();
+        window.addEventListener("scroll", onScroll, { passive: true });
+        return () => window.removeEventListener("scroll", onScroll);
     }, []);
-
-    const scrollToTop = () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    };
 
     return (
         <AnimatePresence>
-            {isVisible && (
+            {visible && (
                 <motion.button
-                    initial={{ opacity: 0, scale: 0.5, y: 20 }}
-                    animate={{ opacity: 1, scale: 1, y: 0 }}
-                    exit={{ opacity: 0, scale: 0.5, y: 20 }}
-                    whileHover={{ scale: 1.1, y: -2 }}
-                    whileTap={{ scale: 0.9 }}
-                    onClick={scrollToTop}
-                    className="fixed bottom-8 right-8 z-40 p-3 bg-gradient-to-br from-primary to-accent text-white rounded-xl shadow-2xl shadow-primary/30 hover:shadow-primary/50 transition-all duration-300"
+                    type="button"
+                    initial={reduce ? false : { opacity: 0, y: 8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={reduce ? { opacity: 0 } : { opacity: 0, y: 8 }}
+                    onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+                    className="fixed bottom-6 right-6 z-40 inline-flex size-11 items-center justify-center border border-line bg-panel text-ink"
                     aria-label="Back to top"
                 >
-                    <motion.div
-                        animate={{ y: [0, -3, 0] }}
-                        transition={{ duration: 2, repeat: Infinity }}
-                    >
-                        <ChevronUp className="w-5 h-5" />
-                    </motion.div>
+                    <ChevronUp size={18} />
                 </motion.button>
             )}
         </AnimatePresence>
