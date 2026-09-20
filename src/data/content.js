@@ -114,6 +114,7 @@ export const selectedWork = [
         engineering:
             "Typed Stripe checkout and webhook handling, Supabase email authentication with session handling and row-level security, and a mobile-first landing system intended to be cloned and deployed rather than rebuilt.",
         tech: ["Next.js", "TypeScript", "Supabase Auth", "Stripe", "PostgreSQL"],
+        image: "/projects/Reactlaunch.png",
         live: "https://reactlaunch.dev/",
     },
     {
@@ -127,6 +128,7 @@ export const selectedWork = [
         engineering:
             "Next.js, Prisma, NextAuth with a Prisma adapter, Stripe, Nodemailer, React Hook Form, Zod, and TanStack Query. The stack is the same shape as a small billed SaaS, not a UI prototype.",
         tech: ["Next.js", "TypeScript", "Prisma", "NextAuth", "Stripe", "Nodemailer", "Zod"],
+        image: "/projects/ai-invoice-manager.png",
         github: "https://github.com/robson-muniz/ai-invoice-manager",
         status: "Source on GitHub",
     },
