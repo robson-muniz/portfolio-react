@@ -1,37 +1,34 @@
-import { Component } from 'react';
+import { Component } from "react";
 
 class ErrorBoundary extends Component {
     constructor(props) {
         super(props);
-        this.state = { hasError: false, error: null };
+        this.state = { hasError: false };
     }
 
-    static getDerivedStateFromError(error) {
-        return { hasError: true, error };
+    static getDerivedStateFromError() {
+        return { hasError: true };
     }
 
     componentDidCatch(error, errorInfo) {
-        console.error('Error caught by boundary:', error, errorInfo);
+        console.error("Error caught by boundary:", error, errorInfo);
     }
 
     render() {
         if (this.state.hasError) {
             return (
-                <div className="min-h-screen bg-gradient-to-br from-slate-50 to-gray-100 dark:from-slate-900 dark:to-gray-950 flex items-center justify-center px-6">
-                    <div className="text-center max-w-md">
-                        <div className="text-6xl mb-6">⚠️</div>
-                        <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">Something went wrong</h1>
-                        <p className="text-gray-600 dark:text-gray-400 mb-6">
-                            We're working on fixing this issue. Please try refreshing the page.
+                <div className="flex min-h-screen items-center justify-center bg-canvas px-6">
+                    <div className="max-w-md">
+                        <h1 className="font-serif text-3xl text-ink">Something broke.</h1>
+                        <p className="mt-4 text-muted">
+                            Refresh the page. If it persists, email robsonmuniz.tech@gmail.com.
                         </p>
                         <button
-                            onClick={() => {
-                                this.setState({ hasError: false, error: null });
-                                window.location.reload();
-                            }}
-                            className="px-8 py-3 bg-gradient-to-r from-primary to-accent text-white rounded-lg hover:opacity-90 transition-all duration-300 font-medium shadow-lg"
+                            type="button"
+                            onClick={() => window.location.reload()}
+                            className="mt-8 inline-flex min-h-12 items-center bg-ink px-6 text-sm font-medium text-canvas"
                         >
-                            Reload Page
+                            Reload
                         </button>
                     </div>
                 </div>

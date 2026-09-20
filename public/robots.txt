@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://robsonmuniz.com/sitemap.xml

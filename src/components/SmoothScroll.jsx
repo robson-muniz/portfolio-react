@@ -1,30 +1,31 @@
-import { useEffect } from 'react';
-import Lenis from 'lenis';
+import { useEffect } from "react";
+import Lenis from "lenis";
 
 const SmoothScroll = ({ children }) => {
     useEffect(() => {
+        const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        if (reduce) return undefined;
+
         const lenis = new Lenis({
-            duration: 1.2,
-            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-            direction: 'vertical',
-            smooth: true,
-            smoothTouch: false,
-            touchMultiplier: 2,
+            duration: 1.05,
+            smoothWheel: true,
+            touchMultiplier: 1.4,
         });
 
-        function raf(time) {
+        let frame = 0;
+        const raf = (time) => {
             lenis.raf(time);
-            requestAnimationFrame(raf);
-        }
-
-        requestAnimationFrame(raf);
+            frame = requestAnimationFrame(raf);
+        };
+        frame = requestAnimationFrame(raf);
 
         return () => {
+            cancelAnimationFrame(frame);
             lenis.destroy();
         };
     }, []);
 
-    return <>{children}</>;
+    return children;
 };
 
 export default SmoothScroll;
