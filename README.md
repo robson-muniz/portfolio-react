@@ -6,6 +6,8 @@
 
 ## 🌐 **Live Demo: [robsonmuniz.com](https://robsonmuniz.com)**
 
+> Repository sync check: last updated on 2026-09-22.
+
 [![Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-000000?style=for-the-badge&logo=vercel)](https://vercel.com)
 [![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react)](https://reactjs.org)
 [![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript)](https://typescriptlang.org)
