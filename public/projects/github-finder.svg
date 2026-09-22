@@ -1,0 +1,89 @@
+<svg width="800" height="500" viewBox="0 0 800 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="800" y2="500" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#091725"/>
+      <stop offset="1" stop-color="#10263f"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="0" y1="0" x2="800" y2="500" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#11273a"/>
+      <stop offset="1" stop-color="#0C2034"/>
+    </linearGradient>
+    <linearGradient id="button" x1="0" y1="0" x2="1" y2="0">
+      <stop stop-color="#0c80ff"/>
+      <stop offset="1" stop-color="#0a5bff"/>
+    </linearGradient>
+    <linearGradient id="chip" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#1d3250"/>
+      <stop offset="1" stop-color="#162a3f"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="160%">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#020b13" flood-opacity="0.33"/>
+    </filter>
+  </defs>
+
+  <rect width="800" height="500" fill="url(#bg)"/>
+
+  <g filter="url(#shadow)">
+    <rect x="110" y="60" width="580" height="380" rx="24" fill="url(#panel)" stroke="#3B4F62"/>
+  </g>
+
+  <g>
+    <text x="400" y="110" text-anchor="middle" font-family="Segoe UI, Inter, sans-serif" font-size="52" font-weight="800" fill="#edf5ff">GitHub Finder</text>
+    <text x="400" y="148" text-anchor="middle" font-family="Segoe UI, Inter, sans-serif" font-size="24" fill="#9EB7D0">Discover developers and their amazing work</text>
+  </g>
+
+  <g>
+    <rect x="175" y="177" width="450" height="56" rx="13" fill="#2a3d4f" stroke="#556878"/>
+    <text x="214" y="214" font-family="Segoe UI, Inter, sans-serif" font-size="26" fill="#dfeaf6">robson-muniz</text>
+  </g>
+
+  <g>
+    <rect x="175" y="250" width="450" height="56" rx="13" fill="url(#button)"/>
+    <text x="400" y="287" text-anchor="middle" font-family="Segoe UI, Inter, sans-serif" font-size="28" font-weight="700" fill="#F4F9FF">Search</text>
+  </g>
+
+  <g>
+    <text x="400" y="340" text-anchor="middle" font-family="Segoe UI, Inter, sans-serif" font-size="34" font-weight="800" fill="#EDF5FF">#Hi, I&apos;m Robson</text>
+    <text x="400" y="373" text-anchor="middle" font-family="Segoe UI, Inter, sans-serif" font-size="34" font-weight="800" fill="#EDF5FF">Muniz</text>
+    <text x="400" y="405" text-anchor="middle" font-family="Segoe UI, Inter, sans-serif" font-size="26" fill="#9AB2C8">@robson-muniz</text>
+  </g>
+
+  <g>
+    <circle cx="250" cy="332" r="54" fill="#0B192B" stroke="#0B80FF" stroke-width="3"/>
+    <path d="M248 277C229.2 277 214 292.2 214 311V321C214 340 228 357 246 357H254C272 357 286 340 286 321V311C286 292.2 270.8 277 252 277H248Z" fill="#D9DDE3"/>
+    <circle cx="250" cy="303" r="22" fill="#D9DDE3"/>
+    <path d="M212 340C225 324 238 318 250 318C262 318 275 324 288 340V356H212V340Z" fill="#D9DDE3"/>
+  </g>
+
+  <g>
+    <text x="410" y="330" font-family="Segoe UI, Inter, sans-serif" font-size="23" font-weight="500" fill="#EAF3FF">I&apos;m a passionate Full Stack</text>
+    <text x="410" y="358" font-family="Segoe UI, Inter, sans-serif" font-size="23" font-weight="500" fill="#EAF3FF">Developer specializing in</text>
+    <text x="410" y="386" font-family="Segoe UI, Inter, sans-serif" font-size="23" font-weight="500" fill="#EAF3FF">JavaScript, ReactJS, and</text>
+    <text x="410" y="414" font-family="Segoe UI, Inter, sans-serif" font-size="23" font-weight="500" fill="#EAF3FF">NodeJS. I thrive on building</text>
+    <text x="410" y="442" font-family="Segoe UI, Inter, sans-serif" font-size="23" font-weight="500" fill="#EAF3FF">scalable and efficient web</text>
+    <text x="410" y="470" font-family="Segoe UI, Inter, sans-serif" font-size="23" font-weight="500" fill="#EAF3FF">applications.</text>
+  </g>
+
+  <g>
+    <rect x="175" y="420" width="450" height="88" rx="14" fill="#162B3C"/>
+    <g>
+      <path d="M210 456H233L221.5 440L210 456Z" fill="#53B3FF"/>
+      <path d="M222 470H212V440H230V470H222Z" fill="#53B3FF"/>
+      <path d="M247 470V456H269V470H247Z" fill="#53B3FF"/>
+      <path d="M255 440H261V470H255V440Z" fill="#53B3FF"/>
+      <path d="M315.5 440C325 440 332 447 332 456.5C332 466 325 473 315.5 473C306 473 299 466 299 456.5C299 447 306 440 315.5 440ZM315.5 448.5C311.9 448.5 308.9 451.5 308.9 455.1C308.9 458.7 311.9 461.7 315.5 461.7C319.1 461.7 322.1 458.7 322.1 455.1C322.1 451.5 319.1 448.5 315.5 448.5ZM327 470V454.5H334.7V470H327Z" fill="#53B3FF"/>
+      <path d="M368 468H350V446H356V462H368V468Z" fill="#53B3FF"/>
+      <path d="M371 470H350V462H371V470ZM354 446H367V454H354V446Z" fill="#53B3FF"/>
+      <path d="M541 437L550 453H530L541 437Z" fill="#F9D86F"/>
+      <path d="M517 470L530 444H552L565 470H517Z" fill="#F9D86F"/>
+    </g>
+
+    <text x="220" y="500" font-family="Segoe UI, Inter, sans-serif" font-size="21" font-weight="700" fill="#EAF3FF">28</text>
+    <text x="318" y="500" font-family="Segoe UI, Inter, sans-serif" font-size="21" font-weight="700" fill="#EAF3FF">40</text>
+    <text x="432" y="500" font-family="Segoe UI, Inter, sans-serif" font-size="21" font-weight="700" fill="#EAF3FF">237</text>
+
+    <text x="205" y="530" font-family="Segoe UI, Inter, sans-serif" font-size="15" font-weight="600" fill="#9AB2C8">REPOS</text>
+    <text x="292" y="530" font-family="Segoe UI, Inter, sans-serif" font-size="15" font-weight="600" fill="#9AB2C8">FOLLOWERS</text>
+    <text x="420" y="530" font-family="Segoe UI, Inter, sans-serif" font-size="15" font-weight="600" fill="#9AB2C8">FOLLOWING</text>
+  </g>
+</svg>

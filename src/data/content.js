@@ -144,6 +144,7 @@ export const selectedWork = [
         engineering:
             "React and TypeScript with TanStack Query for cache and status, a debounce hook for the typeahead, and arrow-key selection in the suggestion list. Recent searches persist in localStorage.",
         tech: ["React", "TypeScript", "TanStack Query", "Vite"],
+        image: "/projects/github-finder.svg",
         live: "https://github-finder-swart-five.vercel.app/",
         github: "https://github.com/robson-muniz/github-finder",
     },
