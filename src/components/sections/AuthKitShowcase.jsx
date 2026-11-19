@@ -357,24 +357,23 @@ const AuthKitShowcase = () => {
                     <div className="relative border-t border-line bg-surface group">
                         <div className="overflow-hidden">
                             <img
-                                src="/projects/secureauth-kit.png"
+                                src="/projects/secureauth-kit-preview.svg"
                                 alt="SecureAuth Kit registration interface screenshot"
                                 width={1920}
                                 height={1080}
-                                className="w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.01]"
+                                loading="lazy"
+                                decoding="async"
+                                className="block w-full object-cover object-top"
                             />
                         </div>
-                        {/* Zoom Trigger overlay */}
-                        <div className="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                            <button
-                                type="button"
-                                onClick={() => setIsLightboxOpen(true)}
-                                className="inline-flex items-center gap-2 rounded-full bg-accent px-4 py-2 font-mono text-xs font-semibold text-canvas shadow-lg transition-transform hover:scale-105 cursor-pointer"
-                            >
-                                <Maximize2 size={14} />
-                                View Fullscreen Screenshot
-                            </button>
-                        </div>
+                        <button
+                            type="button"
+                            onClick={() => setIsLightboxOpen(true)}
+                            className="absolute bottom-4 right-4 inline-flex items-center gap-2 rounded-full border border-line bg-canvas/90 px-4 py-2.5 font-mono text-[10px] font-semibold uppercase tracking-[0.08em] text-ink shadow-xl backdrop-blur transition hover:border-accent/40 hover:text-accent active:scale-[0.98]"
+                        >
+                            <Maximize2 size={14} />
+                            Expand preview
+                        </button>
                     </div>
                 )}
 
@@ -425,8 +424,11 @@ const AuthKitShowcase = () => {
                             </button>
                         </div>
                         <img
-                            src="/projects/secureauth-kit.png"
-                            alt="SecureAuth Kit UI preview high res"
+                            src="/projects/secureauth-kit-preview.svg"
+                            alt="SecureAuth Kit registration preview, full-size vector image"
+                            width={1920}
+                            height={1080}
+                            decoding="async"
                             className="max-h-[80vh] w-auto rounded object-contain"
                         />
                     </div>

@@ -7,18 +7,18 @@
     --font-serif: "Newsreader", ui-serif, Georgia, serif;
     --font-mono: "IBM Plex Mono", ui-monospace, monospace;
 
-    --color-canvas: #0b0b0a;
-    --color-ink: #f4f1ea;
-    --color-muted: #9a958a;
-    --color-line: #26251f;
-    --color-line-strong: #38352d;
-    --color-panel: #131310;
-    --color-surface: #1a1917;
-    --color-panel-hover: #1e1d19;
-    --color-accent: #c4a574;
-    --color-accent-dim: #8b7349;
-    --color-ok: #8fbf9a;
-    --color-danger: #d27a70;
+    --color-canvas: #0c1410;
+    --color-ink: #f3f6ef;
+    --color-muted: #a5b1a7;
+    --color-line: #26352b;
+    --color-line-strong: #3a4b3d;
+    --color-panel: #121c16;
+    --color-surface: #18251b;
+    --color-panel-hover: #1b2b20;
+    --color-accent: #c9f66b;
+    --color-accent-dim: #91b749;
+    --color-ok: #a9db82;
+    --color-danger: #ee897e;
 
     --radius-sm: 0.25rem;
     --radius-md: 0.375rem;
@@ -54,7 +54,8 @@
         @apply bg-canvas text-ink font-sans antialiased;
         font-feature-settings: "ss01" 1, "cv11" 1;
         background-image:
-            linear-gradient(to bottom, rgb(255 255 255 / 0.015), transparent 18rem);
+            radial-gradient(ellipse at 72% 0%, rgb(201 246 107 / 0.055), transparent 38rem),
+            linear-gradient(to bottom, rgb(255 255 255 / 0.018), transparent 22rem);
     }
 
     ::selection {
@@ -68,7 +69,8 @@
     }
 
     h1, h2, h3 {
-        @apply font-serif font-medium tracking-tight text-ink;
+        @apply font-sans font-semibold tracking-tight text-ink;
+        letter-spacing: -0.035em;
         text-wrap: balance;
     }
 

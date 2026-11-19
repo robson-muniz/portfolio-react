@@ -15,19 +15,22 @@ const Stack = () => {
                     </h2>
                 </Reveal>
 
-                <div className="mt-12 grid gap-10 sm:grid-cols-3">
+                <div className="mt-10 grid gap-4 sm:grid-cols-3">
                     {stack.map((group, index) => (
                         <Reveal key={group.title} delay={index * 0.05}>
-                            <h3 className="border-b border-line pb-4 font-serif text-xl">
+                            <div className="h-full rounded-2xl border border-line bg-panel/70 p-5 transition duration-300 hover:-translate-y-0.5 hover:border-accent/25 hover:bg-panel sm:p-6">
+                            <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-accent">0{index + 1} / toolkit</p>
+                            <h3 className="mt-4 border-b border-line pb-4 text-lg">
                                 {group.title}
                             </h3>
-                            <ul className="mt-4 space-y-3">
+                            <ul className="mt-4 flex flex-wrap gap-2">
                                 {group.items.map((item) => (
-                                    <li key={item} className="text-sm text-muted">
+                                    <li key={item} className="rounded-md border border-line bg-canvas/50 px-2.5 py-1.5 font-mono text-[10px] text-muted">
                                         {item}
                                     </li>
                                 ))}
                             </ul>
+                            </div>
                         </Reveal>
                     ))}
                 </div>

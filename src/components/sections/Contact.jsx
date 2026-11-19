@@ -6,7 +6,7 @@ import Container from "../ui/Container";
 import Reveal from "../ui/Reveal";
 
 const fieldClass =
-    "mt-2 w-full border border-line bg-canvas px-4 py-3 text-sm text-ink placeholder:text-muted/70 focus:border-accent focus:outline-none";
+    "mt-2 w-full rounded-xl border border-line bg-canvas/70 px-4 py-3.5 text-sm text-ink placeholder:text-muted/70 transition-colors focus:border-accent focus:bg-canvas focus:outline-none";
 
 const Contact = () => {
     const [formData, setFormData] = useState({ name: "", email: "", message: "" });
@@ -24,7 +24,7 @@ const Contact = () => {
         if (!validateEnv()) {
             setStatus({
                 state: "error",
-                message: `Could not send. Email me directly at ${site.email}.`,
+                message: `The contact form could not send your message. Email me directly at ${site.email}.`,
             });
             return;
         }
@@ -36,6 +36,8 @@ const Contact = () => {
                 {
                     from_name: formData.name,
                     from_email: formData.email,
+                    reply_to: formData.email,
+                    to_email: site.email,
                     message: formData.message,
                     to_name: "Robson",
                 },
@@ -51,24 +53,24 @@ const Contact = () => {
             console.error(error);
             setStatus({
                 state: "error",
-                message: `Could not send. Email me directly at ${site.email}.`,
+                message: `The contact form could not send your message. Email me directly at ${site.email}.`,
             });
         }
     };
 
     return (
-        <section id="contact" className="border-t border-line py-20 sm:py-28">
+        <section id="contact" className="relative overflow-hidden border-t border-line py-20 sm:py-28">
+            <div aria-hidden="true" className="pointer-events-none absolute -right-40 top-0 size-[34rem] rounded-full bg-accent/[0.035] blur-3xl" />
             <Container className="grid gap-14 lg:grid-cols-[0.9fr_1.1fr]">
                 <Reveal>
                     <p className="font-mono text-xs uppercase tracking-[0.22em] text-accent">
                         Contact
                     </p>
-                    <h2 className="mt-4 text-3xl sm:text-4xl">
-                        If the work is a fit, write.
+                    <h2 className="mt-4 text-4xl leading-[1.02] sm:text-5xl">
+                        Hiring a senior web developer?
                     </h2>
                     <p className="mt-5 max-w-md text-base leading-7 text-muted">
-                        Frontend and product engineering roles. Portugal-based, open to Germany,
-                        the EU, and remote.
+                        I’m looking for my next senior web developer role. I’m based in Portugal and open to opportunities across the EU and remotely. Send a note or download my CV.
                     </p>
                     <dl className="mt-10 space-y-6">
                         <div>
@@ -99,7 +101,7 @@ const Contact = () => {
                 </Reveal>
 
                 <Reveal delay={0.06}>
-                    <form onSubmit={onSubmit} className="space-y-5">
+                    <form onSubmit={onSubmit} className="relative space-y-5 rounded-2xl border border-line bg-panel/80 p-5 shadow-[0_24px_70px_rgba(0,0,0,0.18)] sm:p-7">
                         <div>
                             <label htmlFor="name" className="text-sm text-ink">
                                 Name
@@ -137,7 +139,7 @@ const Contact = () => {
                                 id="message"
                                 name="message"
                                 required
-                                rows={6}
+                                rows={5}
                                 value={formData.message}
                                 onChange={onChange}
                                 className={`${fieldClass} resize-y`}
@@ -146,7 +148,7 @@ const Contact = () => {
                         <button
                             type="submit"
                             disabled={status.state === "submitting"}
-                            className="inline-flex min-h-12 w-full items-center justify-center bg-ink px-6 text-sm font-medium text-canvas transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-50 sm:w-auto"
+                            className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-lg bg-accent px-6 text-sm font-semibold text-canvas transition hover:brightness-105 active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-50 sm:w-auto"
                         >
                             {status.state === "submitting" ? "Sending…" : "Send message"}
                         </button>

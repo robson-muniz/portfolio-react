@@ -54,19 +54,20 @@ const Navbar = () => {
                     : "border-b border-transparent bg-transparent"
             }`}
         >
-            <Container className="flex h-16 items-center justify-between">
+            <Container className="flex h-[72px] items-center justify-between">
                 <a
                     href="#home"
                     onClick={(e) => {
                         e.preventDefault();
                         go("#home");
                     }}
-                    className="font-serif text-lg tracking-tight text-ink"
+                    className="group flex items-center gap-2.5 font-sans text-sm font-semibold tracking-[-0.025em] text-ink"
                 >
+                    <span className="flex size-8 items-center justify-center rounded-lg border border-accent/20 bg-accent/[0.08] font-mono text-[10px] text-accent transition-colors group-hover:bg-accent group-hover:text-canvas">RM</span>
                     {site.name}
                 </a>
 
-                <nav className="hidden items-center gap-8 md:flex" aria-label="Primary">
+                <nav className="hidden items-center gap-6 lg:flex xl:gap-8" aria-label="Primary">
                     {navItems.map((item) => (
                         <a
                             key={item.id}
@@ -91,11 +92,14 @@ const Navbar = () => {
                     >
                         LinkedIn
                     </a>
+                    <a href="#contact" onClick={(event) => { event.preventDefault(); go("#contact"); }} className="inline-flex min-h-10 items-center gap-2 rounded-lg bg-accent px-4 text-xs font-semibold text-canvas transition hover:brightness-105 active:scale-[0.98]">
+                        Let’s talk
+                    </a>
                 </nav>
 
                 <button
                     type="button"
-                    className="inline-flex size-10 items-center justify-center rounded-md border border-line text-ink md:hidden"
+                    className="inline-flex size-10 items-center justify-center rounded-lg border border-line text-ink transition hover:border-accent/30 hover:text-accent lg:hidden"
                     aria-expanded={open}
                     aria-controls={menuId}
                     aria-label={open ? "Close menu" : "Open menu"}
@@ -114,7 +118,7 @@ const Navbar = () => {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -8 }}
                         transition={{ duration: 0.18, ease: [0.22, 1, 0.36, 1] }}
-                        className="border-t border-line bg-canvas md:hidden"
+                        className="border-t border-line bg-canvas lg:hidden"
                     >
                         <nav className="flex flex-col px-5 py-4" aria-label="Mobile">
                             {navItems.map((item) => (
@@ -138,6 +142,16 @@ const Navbar = () => {
                                 aria-label="Robson Muniz on LinkedIn"
                             >
                                 LinkedIn
+                            </a>
+                            <a
+                                href="#contact"
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    go("#contact");
+                                }}
+                                className="mt-3 flex min-h-12 items-center justify-center rounded-lg bg-accent px-4 text-sm font-semibold text-canvas"
+                            >
+                                Let’s talk
                             </a>
                         </nav>
                     </motion.div>

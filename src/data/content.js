@@ -1,10 +1,10 @@
 export const site = {
     name: "Robson Muniz",
-    role: "Frontend engineer",
+    role: "Senior web developer",
     location: "Coimbra, Portugal",
     availability: "Open to Germany, EU, and remote",
     languages: ["Portuguese", "English", "German (basic)"],
-    email: "robsonmuniz.tech@gmail.com",
+    email: "robsonmuniz.me@gmail.com",
     url: "https://robsonmuniz.com",
     resume: "/Robson_Muniz_Resume.pdf",
     github: "https://github.com/robson-muniz",
@@ -14,6 +14,12 @@ export const site = {
         name: "ReactLaunch",
         url: "https://reactlaunch.dev/",
     },
+};
+
+export const launchForge = {
+    name: "LaunchForge",
+    live: "https://launchforge-21ma.vercel.app/",
+    github: "https://github.com/robson-muniz/launchforge",
 };
 
 export const navItems = [
@@ -90,6 +96,24 @@ export const featuredProject = {
 
 export const selectedWork = [
     {
+        id: "launchforge",
+        name: "LaunchForge",
+        category: "SaaS foundation",
+        description:
+            "Downloadable source kits for authentication, data, and payments, with a product marketplace for teams building their next app.",
+        problem:
+            "Founders repeat the same setup work for identity, persistence, and checkout before they can build the feature that makes their product different.",
+        engineering:
+            "Next.js and TypeScript with Auth.js, Prisma, PostgreSQL, and Stripe. Reusable source kits give each product concern a clear boundary.",
+        result:
+            "A working foundation teams can adapt instead of wiring the same product plumbing from scratch.",
+        tech: ["Next.js", "TypeScript", "Auth.js", "Prisma", "PostgreSQL", "Stripe"],
+        image: "/projects/launchforge-hero.webp",
+        live: launchForge.live,
+        github: launchForge.github,
+        status: "Case study",
+    },
+    {
         id: "crypto-commerce",
         name: "CryptoCommerce",
         category: "Marketplace",
@@ -99,6 +123,8 @@ export const selectedWork = [
             "Selling digital goods against on-chain payments without exposing wallet keys or reusing addresses.",
         engineering:
             "Next.js App Router with Server Actions, PostgreSQL via Prisma, NextAuth, and BIP32/BIP39 address derivation. Private-key material stays off the client. Inputs are validated with Zod before they hit the database.",
+        result:
+            "A marketplace flow that keeps address derivation and order persistence on the server, with validated inputs before data reaches PostgreSQL.",
         tech: ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "NextAuth", "Bitcoin", "Zod"],
         image: "/projects/crypto-commerce.png",
         live: "https://www.cryptocommerce.pt",
@@ -128,6 +154,8 @@ export const selectedWork = [
             "Invoicing is a full product: identity, payments, documents, and mail, not a table of line items.",
         engineering:
             "Next.js, Prisma, NextAuth with a Prisma adapter, Stripe, Nodemailer, React Hook Form, Zod, and TanStack Query. The stack is the same shape as a small billed SaaS, not a UI prototype.",
+        result:
+            "Authentication, billing, invoice documents, and email delivery work together as one product flow.",
         tech: ["Next.js", "TypeScript", "Prisma", "NextAuth", "Stripe", "Nodemailer", "Zod"],
         image: "/projects/ai-invoice-manager.png",
         github: "https://github.com/robson-muniz/ai-invoice-manager",

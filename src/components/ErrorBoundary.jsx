@@ -21,7 +21,7 @@ class ErrorBoundary extends Component {
                     <div className="max-w-md">
                         <h1 className="font-serif text-3xl text-ink">Something broke.</h1>
                         <p className="mt-4 text-muted">
-                            Refresh the page. If it persists, email robsonmuniz.tech@gmail.com.
+                            Refresh the page. If it persists, email robsonmuniz.me@gmail.com.
                         </p>
                         <button
                             type="button"
