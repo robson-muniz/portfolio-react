@@ -40,6 +40,11 @@ const Contact = () => {
                     to_email: site.email,
                     message: formData.message,
                     to_name: "Robson",
+                    // Keep the default EmailJS Contact Us template compatible too.
+                    name: formData.name,
+                    email: formData.email,
+                    title: "Portfolio contact",
+                    time: new Date().toLocaleString(),
                 },
                 import.meta.env.VITE_EMAILJS_PUBLIC_KEY
             );
@@ -50,10 +55,13 @@ const Contact = () => {
             });
             setFormData({ name: "", email: "", message: "" });
         } catch (error) {
-            console.error(error);
+            console.error("EmailJS contact form request failed:", error);
+            const errorDetails = error?.text || error?.message;
             setStatus({
                 state: "error",
-                message: `The contact form could not send your message. Email me directly at ${site.email}.`,
+                message: errorDetails
+                    ? `EmailJS error (${error?.status || "request failed"}): ${errorDetails}. Email me directly at ${site.email}.`
+                    : `The contact form could not send your message. Email me directly at ${site.email}.`,
             });
         }
     };
