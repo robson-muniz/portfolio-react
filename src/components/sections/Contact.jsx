@@ -1,7 +1,7 @@
 import emailjs from "@emailjs/browser";
 import { useState } from "react";
 import { site } from "../../data/content";
-import { validateEnv } from "../../utils/env.validation";
+import { getMissingEnv, validateEnv } from "../../utils/env.validation";
 import Container from "../ui/Container";
 import Reveal from "../ui/Reveal";
 
@@ -22,9 +22,10 @@ const Contact = () => {
         setStatus({ state: "submitting", message: "" });
 
         if (!validateEnv()) {
+            const missing = getMissingEnv();
             setStatus({
                 state: "error",
-                message: `The contact form could not send your message. Email me directly at ${site.email}.`,
+                message: `Email delivery is missing production settings: ${missing.join(", ")}. Email me directly at ${site.email}.`,
             });
             return;
         }
